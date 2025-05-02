@@ -1,0 +1,1663 @@
+{
+  "schemaVersion": 1,
+  "universe": {
+    "uuid": "837edbbd-830e-456a-b07b-e68b4fe21fc3",
+    "name": "tic_tac_toe",
+    "meta": {
+      "authorUuid": "dbdafc35-10e1-4e1f-a1a4-236d108ec8cb",
+      "authorName": "AI11",
+      "website": "https://www.ai11.link",
+      "license": "MIT",
+      "dateCreated": "2025-01-06",
+      "dateModified": "2025-01-06",
+      "version": {
+        "major": 1,
+        "minor": 0,
+        "patch": 0
+      },
+      "isInDevelopment": true,
+      "icon": "game_icon",
+      "description": "description",
+      "preview": "preview.webp",
+      "minPlayers": 2,
+      "maxPlayers": 2,
+      "tags": [
+        "turn-based",
+        "puzzle",
+        "strategy",
+        "multiplayer"
+      ],
+      "additionalInfo": {
+        "changelog": "1.0.0 - First base template",
+        "licenseText": "Copyright <YEAR> <COPYRIGHT HOLDER>\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.",
+        "attribution": "freepik.com, svgrepo.com, lottiefiles.com, iconscout.com, freesound.org, freetouse.com"
+      }
+    },
+    "resources": {
+      "images": [
+        {
+          "name": "game_icon",
+          "type": "image",
+          "path": "icon.svg",
+          "content": "",
+          "jsonParams": ""
+        },
+        {
+          "name": "level_background_forest_back",
+          "type": "image",
+          "path": "level_background_forest_back.svg",
+          "content": "",
+          "jsonParams": ""
+        },
+        {
+          "name": "level_background_forest_front",
+          "type": "image",
+          "path": "level_background_forest_front.svg",
+          "content": "",
+          "jsonParams": ""
+        },
+        {
+          "name": "level_cell",
+          "type": "image",
+          "path": "cell.svg",
+          "content": "",
+          "jsonParams": ""
+        },
+        {
+          "name": "exit",
+          "type": "image",
+          "path": "exit.svg",
+          "content": "",
+          "jsonParams": ""
+        },
+        {
+          "name": "info",
+          "type": "image",
+          "path": "info.svg",
+          "content": "",
+          "jsonParams": ""
+        },
+        {
+          "name": "back",
+          "type": "image",
+          "path": "back.svg",
+          "content": "",
+          "jsonParams": ""
+        },
+        {
+          "name": "music_on",
+          "type": "image",
+          "path": "music_on.svg",
+          "content": "",
+          "jsonParams": ""
+        },
+        {
+          "name": "music_off",
+          "type": "image",
+          "path": "music_off.svg",
+          "content": "",
+          "jsonParams": ""
+        },
+        {
+          "name": "pause",
+          "type": "image",
+          "path": "pause.svg",
+          "content": "",
+          "jsonParams": ""
+        },
+        {
+          "name": "restart",
+          "type": "image",
+          "path": "restart.svg",
+          "content": "",
+          "jsonParams": ""
+        },
+        {
+          "name": "help",
+          "type": "image",
+          "path": "help.svg",
+          "content": "",
+          "jsonParams": ""
+        },
+        {
+          "name": "shadow",
+          "type": "image",
+          "path": "shadow.png",
+          "content": "",
+          "jsonParams": ""
+        },
+        {
+          "name": "forest_skin",
+          "type": "image",
+          "path": "forest_skin.png",
+          "content": "",
+          "jsonParams": ""
+        },
+        {
+          "name": "space_skin",
+          "type": "image",
+          "path": "space_skin.png",
+          "content": "",
+          "jsonParams": ""
+        },
+        {
+          "name": "paper_skin",
+          "type": "image",
+          "path": "paper_skin.png",
+          "content": "",
+          "jsonParams": ""
+        }
+      ],
+      "audio": [
+        {
+          "name": "gameplay_music",
+          "type": "music",
+          "path": "background_level.mp3",
+          "content": "",
+          "jsonParams": ""
+        },
+        {
+          "name": "main_menu_music",
+          "type": "music",
+          "path": "background_main_menu.mp3",
+          "content": "",
+          "jsonParams": ""
+        },
+        {
+          "name": "button_click",
+          "type": "sound",
+          "path": "button_click.mp3",
+          "content": "",
+          "jsonParams": ""
+        }
+      ],
+      "videos": [],
+      "animations": [
+        {
+          "name": "butterfly",
+          "type": "animation",
+          "path": "butterfly.json",
+          "content": "",
+          "jsonParams": "{'controller': {'duration': 7.0, 'startDelay': 5, 'alternate': true, 'infinite': true, 'atMaxDuration': 5.0, 'atMinDuration': 5.0 }}"
+        },
+        {
+          "name": "woodpecker",
+          "type": "animation",
+          "path": "woodpecker.json",
+          "content": "",
+          "jsonParams": "{'controller': {'duration': 7.0, 'infinite': true}}"
+        },
+        {
+          "name": "clouds",
+          "type": "animation",
+          "path": "clouds.json",
+          "content": "",
+          "jsonParams": "{'controller': {'duration': 60.0, 'infinite': true}}"
+        },
+        {
+          "name": "rabbit",
+          "type": "animation",
+          "path": "rabbit.json",
+          "content": "",
+          "jsonParams": "{'controller': {'duration': 7.0, 'startDelay': 10, 'infinite': true, 'atMaxDuration': 20.0}}"
+        },
+        {
+          "name": "flower",
+          "type": "animation",
+          "path": "flower.json",
+          "content": "",
+          "jsonParams": "{'controller': {'duration': 5.0, 'alternate': true, 'infinite': true}}"
+        },
+        {
+          "name": "cat_is_waiting",
+          "type": "animation",
+          "path": "cat_waiting.json",
+          "content": "",
+          "jsonParams": "{'controller': {'duration': 5.0, 'alternate': true, 'infinite': true}}"
+        }
+      ],
+      "particleSystems": [],
+      "styles": [
+        {
+          "name": "forest_text_style",
+          "type": "textStyle",
+          "jsonParams": "{'fontFamily': 'Neucha', 'color': '0xFF5E1308', 'backgroundColor':'0x00000000', 'fontSize': 30, 'shadows': [{'color':'0xFF831B10', 'offsetX': 2.0, 'offsetY': 2.0, 'blurRadius': 2.0}]}"
+        },
+        {
+          "name": "title_text_style",
+          "type": "textStyle",
+          "jsonParams": "{'fontFamily': 'Pacifico', 'color': '0xFF000000', 'backgroundColor':'0x00000000', 'fontSize': 30, 'heightStyle': 2}"
+        },
+        {
+          "name": "button_text_style",
+          "type": "textStyle",
+          "jsonParams": "{'fontFamily': 'Pacifico', 'color': '0xFF831B10', 'backgroundColor':'0x00000000', 'fontSize': 30, 'heightStyle': 2}"
+        },
+        {
+          "name": "big_title_text_style",
+          "type": "textStyle",
+          "jsonParams": "{'fontFamily': 'Pacifico', 'color': '0xFF000000', 'backgroundColor':'0x00000000', 'fontSize': 50, 'heightStyle': 2}"
+        },
+        {
+          "name": "about_text_style",
+          "type": "textStyle",
+          "jsonParams": "{'fontFamily': 'Montserrat', 'color': '0xFF000000', 'backgroundColor':'0x00000000', 'fontSize': 18, 'heightStyle': 1.5}"
+        },
+        {
+          "name": "about_url_style",
+          "type": "textStyle",
+          "jsonParams": "{'fontFamily': 'Montserrat', 'color': '0xFF0000FF', 'backgroundColor':'0x00000000', 'fontSize': 18, 'heightStyle': 1.5, 'decoration': 'underline', 'decorationColor': '0xFF0000FF', 'decorationThickness': 2.0, 'offsetX': 0.0, 'offsetY': 2.0}"
+        },
+        {
+          "name": "round_button",
+          "type": "buttonStyle",
+          "jsonParams": "{'defaultSkin': {'componentType': 'Rect', 'jsonParams': {'borderColor': '0xFF831B10', 'innerColor': '0xFFE9B635', 'start':[40, 40], 'size': [70, 60], 'outerRadius': 30, 'innerRadius': 26, 'thickness': 5, 'anchor': 'center'}}, 'hoverSkin': {'componentType': 'Rect', 'jsonParams': {'borderColor': '0xFF831B10', 'innerColor': '0xFFDDA309', 'start':[39, 39], 'size': [72, 62], 'outerRadius': 31, 'innerRadius': 27, 'thickness': 6, 'anchor': 'center'}}, 'downSkin': {'componentType': 'Rect', 'jsonParams': {'borderColor': '0xFFBB0000', 'innerColor': '0xFFFF6429', 'start':[39, 39], 'size': [72, 62], 'outerRadius': 31, 'innerRadius': 27, 'thickness': 6, 'anchor': 'center'}}, 'disabledSkin': {'componentType': 'Rect', 'jsonParams': {'borderColor': '0xFF696969', 'innerColor': '0xFFAEAEAE', 'start':[40, 50], 'size': [70, 60], 'outerRadius': 30, 'innerRadius': 26, 'thickness': 5, 'anchor': 'center'}}}"
+        },
+        {
+          "name": "big_rect_button",
+          "type": "buttonStyle",
+          "jsonParams": "{'defaultSkin': {'componentType': 'Rect', 'jsonParams': {'borderColor': '0xFF831B10', 'innerColor': '0xFFE9B635', 'start':[80, 40], 'size': [160, 80], 'outerRadius': 10, 'innerRadius': 8, 'thickness': 5, 'anchor': 'center'}}, 'hoverSkin': {'componentType': 'Rect', 'jsonParams': {'borderColor': '0xFF831B10', 'innerColor': '0xFFDDA309', 'start':[79, 39], 'size': [162, 82], 'outerRadius': 11, 'innerRadius': 9, 'thickness': 6, 'anchor': 'center'}}, 'downSkin': {'componentType': 'Rect', 'jsonParams': {'borderColor': '0xFFBB0000', 'innerColor': '0xFFFF6429', 'start':[79, 39], 'size': [162, 82], 'outerRadius': 11, 'innerRadius': 9, 'thickness': 6, 'anchor': 'center'}}, 'disabledSkin': {'componentType': 'Rect', 'jsonParams': {'borderColor': '0xFF696969', 'innerColor': '0xFFAEAEAE', 'start':[80, 40], 'size': [160, 80], 'outerRadius': 10, 'innerRadius': 8, 'thickness': 5, 'anchor': 'center'}}}"
+        }, 
+        {
+          "name": "big_frame_button",
+          "type": "buttonStyle",
+          "jsonParams": "{'defaultSkin': {'componentType': 'Rect', 'jsonParams': {'borderColor': '0xFF41612F', 'innerColor': '0xFF6F9643', 'start':[90, 90], 'size': [180, 163], 'outerRadius': 8, 'innerRadius': 4, 'thickness': 5, 'anchor': 'center'}}, 'hoverSkin': {'componentType': 'Rect', 'jsonParams': {'borderColor': '0xFFF7EF07', 'innerColor': '0xFF6F9643', 'start':[89, 89], 'size': [182, 165], 'outerRadius': 10, 'innerRadius': 5, 'thickness': 7, 'anchor': 'center'}}}"
+        },
+        {
+          "name": "middle_rect_button",
+          "type": "buttonStyle",
+          "jsonParams": "{'defaultSkin': {'componentType': 'Rect', 'jsonParams': {'borderColor': '0xFF831B10', 'innerColor': '0xFFE9B635', 'start':[140, 40], 'size': [280, 80], 'outerRadius': 10, 'innerRadius': 8, 'thickness': 5, 'anchor': 'center'}}, 'hoverSkin': {'componentType': 'Rect', 'jsonParams': {'borderColor': '0xFF831B10', 'innerColor': '0xFFDDA309', 'start':[139, 39], 'size': [282, 82], 'outerRadius': 11, 'innerRadius': 9, 'thickness': 6, 'anchor': 'center'}}, 'downSkin': {'componentType': 'Rect', 'jsonParams': {'borderColor': '0xFFBB0000', 'innerColor': '0xFFFF6429', 'start':[139, 39], 'size': [282, 82], 'outerRadius': 11, 'innerRadius': 9, 'thickness': 6, 'anchor': 'center'}}, 'disabledSkin': {'componentType': 'Rect', 'jsonParams': {'borderColor': '0xFF696969', 'innerColor': '0xFFAEAEAE', 'start':[140, 40], 'size': [280, 80], 'outerRadius': 10, 'innerRadius': 8, 'thickness': 5, 'anchor': 'center'}}}"
+        }
+      ],
+      "localizations": {
+        "languages": [
+          {
+            "code": "en",
+            "name": "English"
+          },
+          {
+            "code": "ru",
+            "name": "Русский"
+          },
+          {
+            "code": "uk",
+            "name": "Українська"
+          }
+        ],
+        "defaultLanguage": "en",
+        "autotranslations": true,
+        "translationStrings": [
+          {
+            "name": "tic_tac_toe",
+            "translations": [
+              {
+                "lang": "en",
+                "text": "Tic-Tac-Toe"
+              },
+              {
+                "lang": "ru",
+                "text": "Крестики-нолики"
+              },
+              {
+                "lang": "uk",
+                "text": "Хрестики-нулики"
+              }
+            ]
+          },
+          {
+            "name": "level_label",
+            "translations": [
+              {
+                "lang": "en",
+                "text": "level"
+              },
+              {
+                "lang": "ru",
+                "text": "уровень"
+              },
+              {
+                "lang": "uk",
+                "text": "рівень"
+              }
+            ]
+          },
+          {
+            "name": "levels_title", 
+            "translations": [
+              {
+                "lang": "en",
+                "text": "DIFFICULTY"
+              },
+              {
+                "lang": "ru",
+                "text": "СЛОЖНОСТЬ"
+              },
+              {
+                "lang": "uk",
+                "text": "СКЛАДНІСТЬ"
+              }
+            ]
+          },
+          {
+            "name": "pause_title", 
+            "translations": [
+              {
+                "lang": "en",
+                "text": "PAUSE"
+              },
+              {
+                "lang": "ru",
+                "text": "ПАУЗА"
+              },
+              {
+                "lang": "uk",
+                "text": "ПАУЗА"
+              }
+            ]
+          },
+          {
+            "name": "beginner", 
+            "translations": [
+              {
+                "lang": "en",
+                "text": "Beginner, 3x3"
+              },
+              {
+                "lang": "ru",
+                "text": "Легкий, 3x3"
+              },
+              {
+                "lang": "uk",
+                "text": "Початківець, 3x3"
+              }
+            ]
+          },
+          {
+            "name": "master", 
+            "translations": [
+              {
+                "lang": "en",
+                "text": "Master, 5x5"
+              },
+              {
+                "lang": "ru",
+                "text": "Средний, 5x5"
+              },
+              {
+                "lang": "uk",
+                "text": "Досвідчений, 7x7"
+              }
+            ]
+          },
+          {
+            "name": "grandmaster", 
+            "translations": [
+              {
+                "lang": "en",
+                "text": "Grandmaster, 7x7"
+              },
+              {
+                "lang": "ru",
+                "text": "Cложный, 7x7"
+              },
+              {
+                "lang": "uk",
+                "text": "Профі, 7x7"
+              }
+            ]
+          },
+          {
+            "name": "score_label",
+            "translations": [
+              {
+                "lang": "en",
+                "text": "score"
+              },
+              {
+                "lang": "ru",
+                "text": "счет"
+              },
+              {
+                "lang": "uk",
+                "text": "рахунок"
+              }
+            ]
+          },
+          {
+            "name": "time_label",
+            "translations": [
+              {
+                "lang": "en",
+                "text": "time"
+              },
+              {
+                "lang": "ru",
+                "text": "время"
+              },
+              {
+                "lang": "uk",
+                "text": "час"
+              }
+            ]
+          },
+          {
+            "name": "turn_label",
+            "translations": [
+              {
+                "lang": "en",
+                "text": "turn"
+              },
+              {
+                "lang": "ru",
+                "text": "ход"
+              },
+              {
+                "lang": "uk",
+                "text": "хід"
+              }
+            ]
+          },
+          {
+            "name": "your",
+            "translations": [
+              {
+                "lang": "en",
+                "text": "your"
+              },
+              {
+                "lang": "ru",
+                "text": "твой"
+              },
+              {
+                "lang": "uk",
+                "text": "твій"
+              }
+            ]
+          },
+          {
+            "name": "lives_label",
+            "translations": [
+              {
+                "lang": "en",
+                "text": "lives"
+              },
+              {
+                "lang": "ru",
+                "text": "жизни"
+              },
+              {
+                "lang": "uk",
+                "text": "життя"
+              }
+            ]
+          },
+          {
+            "name": "start_label",
+            "translations": [
+              {
+                "lang": "en",
+                "text": "Start"
+              },
+              {
+                "lang": "ru",
+                "text": "Старт"
+              },
+              {
+                "lang": "uk",
+                "text": "Старт"
+              }
+            ]
+          },
+          {
+            "name": "levels",
+            "translations": [
+              {
+                "lang": "en",
+                "text": "Levels"
+              },
+              {
+                "lang": "ru",
+                "text": "Уровни"
+              },
+              {
+                "lang": "uk",
+                "text": "Рівні"
+              }
+            ]
+          },
+          {
+            "name": "themes",
+            "translations": [
+              {
+                "lang": "en",
+                "text": "Themes"
+              },
+              {
+                "lang": "ru",
+                "text": "Темы"
+              },
+              {
+                "lang": "uk",
+                "text": "Теми"
+              }
+            ]
+          },
+          {
+            "name": "ok",
+            "translations": [
+              {
+                "lang": "en",
+                "text": "OK"
+              },
+              {
+                "lang": "ru",
+                "text": "OK"
+              },
+              {
+                "lang": "uk",
+                "text": "OK"
+              }
+            ]
+          },
+          {
+            "name": "about_game",
+            "translations": [
+              {
+                "lang": "en",
+                "text": "About Game"
+              },
+              {
+                "lang": "ru",
+                "text": "Об игре"
+              },
+              {
+                "lang": "uk",
+                "text": "Про гру"
+              }
+            ]
+          },
+          {
+            "name": "authorName",
+            "translations": [
+              {
+                "lang": "en",
+                "text": "Author: "
+              },
+              {
+                "lang": "ru",
+                "text": "Автор: "
+              },
+              {
+                "lang": "uk",
+                "text": "Автор: "
+              }
+            ]
+          },
+          {
+            "name": "website",
+            "translations": [
+              {
+                "lang": "en",
+                "text": "@authorName"
+              },
+              {
+                "lang": "ru",
+                "text": "@authorName"
+              },
+              {
+                "lang": "uk",
+                "text": "@authorName"
+              }
+            ]
+          },
+          {
+            "name": "version",
+            "translations": [
+              {
+                "lang": "en",
+                "text": "Version: @version"
+              },
+              {
+                "lang": "ru",
+                "text": "Версия: @version"
+              },
+              {
+                "lang": "uk",
+                "text": "Версія: @version"
+              }
+            ]
+          },
+          {
+            "name": "description",
+            "translations": [
+              {
+                "lang": "en",
+                "text": "A logic game with several difficulty levels. Test your skills in the classic game of tic-tac-toe! Choose between easy, medium and hard levels to compete with the computer."
+              },
+              {
+                "lang": "ru",
+                "text": "Логическая игра с несколькими уровнями сложности. Испытайте свои навыки в игре крестики-нолики! Выбирайте между легким, средним и сложным уровнями, чтобы сразиться с компьютером."
+              },
+              {
+                "lang": "uk",
+                "text": "Логічна гра з кількома рівнями складності. Випробуйте свої навички в класичній грі хрестики-нуліки! Вибирайте між легким, середнім та складним рівнями, щоб поборотися з комп'ютером."
+              }
+            ]
+          },
+          {
+            "name": "license",
+            "translations": [
+              {
+                "lang": "en",
+                "text": "License: @license"
+              },
+              {
+                "lang": "ru",
+                "text": "Лицензия: @license"
+              },
+              {
+                "lang": "uk",
+                "text": "Ліцензія: @license"
+              }
+            ]
+          },
+          {
+            "name": "attribution",
+            "translations": [
+              {
+                "lang": "en",
+                "text": "Resources from the following sites were used:\n@additionalInfo.attribution"
+              },
+              {
+                "lang": "ru",
+                "text": "Использованы ресурсы со следующих сайтов:\n@additionalInfo.attribution"
+              },
+              {
+                "lang": "uk",
+                "text": "Використано ресурси з наступних сайтів:\n@additionalInfo.attribution"
+              }
+            ]
+          },
+          {
+            "name": "dateModified",
+            "translations": [
+              {
+                "lang": "en",
+                "text": "Date Modified: @dateModified"
+              },
+              {
+                "lang": "ru",
+                "text": "Обновлено: @dateModified"
+              },
+              {
+                "lang": "uk",
+                "text": "Оновлено: @dateModified"
+              }
+            ]
+          },
+          {
+            "name": "currentDate",
+            "translations": [
+              {
+                "lang": "en",
+                "text": "Date: @currentDate @currentTime"
+              },
+              {
+                "lang": "ru",
+                "text": "Дата: @currentDate @currentTime"
+              },
+              {
+                "lang": "uk",
+                "text": "Дата: @currentDate @currentTime"
+              }
+            ]
+          },
+          {
+            "name": "back_label",
+            "translations": [
+              {
+                "lang": "en",
+                "text": "Back"
+              },
+              {
+                "lang": "ru",
+                "text": "Назад"
+              },
+              {
+                "lang": "uk",
+                "text": "Назад"
+              }
+            ]
+          },
+          {
+            "name": "exit_label",
+            "translations": [
+              {
+                "lang": "en",
+                "text": "Exit"
+              },
+              {
+                "lang": "ru",
+                "text": "Выход"
+              },
+              {
+                "lang": "uk",
+                "text": "Вихід"
+              }
+            ]
+          },
+          {
+            "name": "thanks_label",
+            "translations": [
+              {
+                "lang": "en",
+                "text": "Thank you for playing!\nSee you again soon!"
+              },
+              {
+                "lang": "ru",
+                "text": "Спасибо за игру!\nДо новых встреч!"
+              },
+              {
+                "lang": "uk",
+                "text": "Дякуємо за гру!\nДо нових зустрічей!"
+              }
+            ]
+          },
+          {
+            "name": "forest_label",
+            "translations": [
+              {
+                "lang": "en",
+                "text": "Forest"
+              },
+              {
+                "lang": "ru",
+                "text": "Лес"
+              },
+              {
+                "lang": "uk",
+                "text": "Ліс"
+              }
+            ]
+          },
+          {
+            "name": "space_label",
+            "translations": [
+              {
+                "lang": "en",
+                "text": "Space"
+              },
+              {
+                "lang": "ru",
+                "text": "Космос"
+              },
+              {
+                "lang": "uk",
+                "text": "Космос"
+              }
+            ]
+          },
+          {
+            "name": "paper_label",
+            "translations": [
+              {
+                "lang": "en",
+                "text": "Paper"
+              },
+              {
+                "lang": "ru",
+                "text": "Бумага"
+              },
+              {
+                "lang": "uk",
+                "text": "Папір"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "gameManager": {
+      "debugMode": false,
+      "jsonParams": ""
+    },
+    "saveManager": {
+      "saveSchemaVersion": 1,
+      "gameJsonUserData": "{ 'score': 0 }",
+      "settingsJsonUserData": "{ 'alwaysFirst': false, 'currentTheme': 'default'}",
+      "jsonParams": ""
+    },
+    "networkManager": {
+      "jsonParams": ""
+    },
+    "scriptManager": {
+      "scripts": [],
+      "jsonParams": ""
+    },
+    "eventManager": {
+      "events": [],
+      "jsonParams": ""
+    },
+    "cameraManager": {
+      "cameraType": "max",
+      "jsonParams": ""
+    },
+    "routerManager": {
+      "routes": [
+        {
+          "name": "main_menu",
+          "windowType": "simple",
+          "transparent": false,
+          "jsonParams": "",
+          "content": "",
+          "components": [
+            {
+              "name": "menu_layout",
+              "componentType": "AdaptiveLayout",
+              "jsonParams": "{'leftSideSize': 80, 'rightSideSize': 0, 'minCentralSize': 100, 'leftAlign': 0.1, 'allowIncrease': true, 'leftComponents': ['button_exit', 'button_about', 'button_music'], 'background': ['level_background_back', 'level_background_front', 'level_back_animation_1', 'level_back_animation_2', 'level_back_animation_3', 'level_back_animation_4', 'level_back_animation_5']}",
+              "components": [
+                {
+                  "name": "level_background_back",
+                  "componentType": "Image",
+                  "jsonParams": "{'src': 'level_background_forest_back', 'width': 3000, 'height': 2000}"
+                },
+                {
+                  "name": "level_back_animation_1",
+                  "componentType": "Animation",
+                  "jsonParams": "{'src': 'clouds', 'x': 1500, 'y': 670, 'width': 750, 'height': 350}"
+                },
+                {
+                  "name": "level_background_front",
+                  "componentType": "Image",
+                  "jsonParams": "{'src': 'level_background_forest_front', 'width': 3000, 'height': 2000}"
+                },
+                {
+                  "name": "level_back_animation_2",
+                  "componentType": "Animation",
+                  "jsonParams": "{'src': 'butterfly', 'x': 1950, 'y': 1300, 'width': 100, 'height': 100}"
+                },
+                {
+                  "name": "level_back_animation_3",
+                  "componentType": "Animation",
+                  "jsonParams": "{'src': 'woodpecker', 'x': 2320, 'y': 700, 'width': 800, 'height': 600}"
+                },
+                {
+                  "name": "level_back_animation_4",
+                  "componentType": "Animation",
+                  "jsonParams": "{'src': 'rabbit', 'x': 1050, 'y': 1350, 'width': 200, 'height': 200}"
+                },
+                {
+                  "name": "level_back_animation_5",
+                  "componentType": "Animation",
+                  "jsonParams": "{'src': 'flower', 'x': 740, 'y': 1500, 'width': 270, 'height': 580}"
+                },
+                {
+                  "name": "button_exit",
+                  "componentType": "Button",
+                  "jsonParams": "{'x': 0, 'y': 0, 'width': 80, 'height': 80, 'buttonStyle': 'round_button', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'navigation', 'func': 'show', 'content': 'exit_dialog'}]}]}",
+                  "components": [
+                    {
+                      "name": "exit_image",
+                      "componentType": "Image",
+                      "jsonParams": "{'src': 'exit', 'x': 40, 'y': 43,  'width': 40, 'height': 40, 'anchor': 'center', 'priority': 1}"
+                    }
+                  ]
+                },
+                {
+                  "name": "button_about",
+                  "componentType": "Button",
+                  "jsonParams": "{'x': 0, 'y': 90, 'width': 80, 'height': 80, 'buttonStyle': 'round_button', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'navigation', 'func': 'show', 'content': 'about_window'}]}]}",
+                  "components": [
+                    {
+                      "name": "info_image",
+                      "componentType": "Image",
+                      "jsonParams": "{'src': 'info', 'x': 40, 'y': 40,  'width': 50, 'height': 50, 'anchor': 'center', 'priority': 1}"
+                    }
+                  ]
+                },
+                {
+                  "name": "button_music",
+                  "componentType": "Music",
+                  "jsonParams": "{'src': 'main_menu_music', 'x': 0, 'y': 180, 'width': 80, 'height': 100, 'skinPlay': 'music_on', 'skinPause': 'music_off', 'autoPlay': true, 'hide': false, 'loop': true}"
+                },
+                {
+                  "name": "align_main_menu",
+                  "componentType": "AlignLayout",
+                  "jsonParams": "{'align':'bottomCenter', 'x': 0, 'y': 50, 'width': 400, 'height': 200}",
+                  "components": [
+                    {
+                      "name": "button_play",
+                      "componentType": "Button",
+                      "jsonParams": "{'width': 160, 'height': 80, 'buttonStyle': 'big_rect_button', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'navigation', 'func': 'show', 'content': 'gameplay'}]}]}",
+                      "components": [
+                        {
+                          "name": "button_play_label",
+                          "componentType": "Text",
+                          "jsonParams": "{'text': 'start_label', 'width': 160, 'height': 80, 'textStyle': 'button_text_style', 'anchor': 'topLeft', 'priority': 1}"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "main_menu_buttons",
+                  "componentType": "GridLayout",
+                  "jsonParams": "{'x': -200, 'y': 150, 'colsNum': 2, 'rowsNum': 1, 'width': 400, 'height': 100, 'padTRBL': [5.0, 5.0, 5.0, 5.0]}",
+                  "components": [
+                    {
+                      "name": "button_levels",
+                      "componentType": "Button",
+                      "jsonParams": "{'width': 160, 'height': 80, 'buttonStyle': 'big_rect_button', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'navigation', 'func': 'show', 'content': 'levels_window'}]}]}",
+                      "components": [
+                        {
+                          "name": "button_levels_label",
+                          "componentType": "Text",
+                          "jsonParams": "{'text': 'levels', 'width': 160, 'height': 80, 'textStyle': 'button_text_style', 'anchor': 'topLeft', 'priority': 1}"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "button_change_theme",
+                      "componentType": "Button",
+                      "jsonParams": "{'width': 160, 'height': 80, 'buttonStyle': 'big_rect_button', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'navigation', 'func': 'show', 'content': 'change_theme_window'}]}]}",
+                      "components": [
+                        {
+                          "name": "button_themes_label",
+                          "componentType": "Text",
+                          "jsonParams": "{'text': 'themes', 'width':160, 'height': 80, 'textStyle': 'button_text_style', 'anchor': 'topLeft', 'priority': 1}"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "scripts": []
+        },
+        {
+          "name": "about_window",
+          "windowType": "simple",
+          "transparent": true,
+          "jsonParams": "",
+          "content": "",
+          "components": [
+            {
+              "name": "about_layout",
+              "componentType": "AdaptiveLayout",
+              "jsonParams": "{'leftSideSize': 0, 'rightSideSize': 0, 'minCentralSize': 100, 'background': ['about_background']}",
+              "components": [
+                {
+                  "name": "about_background",
+                  "componentType": "Image",
+                  "jsonParams": "{'src': 'shadow', 'width': 100, 'height': 100}"
+                },
+                {
+                  "name": "about_frame",
+                  "componentType": "Rect",
+                  "jsonParams": "{'borderColor': '0xFF41612F', 'innerColor': '0xFF6F9643', 'start': [0, 0], 'size': [700, 600], 'anchor': 'topLeft', 'outerRadius': 15, 'innerRadius': 11, 'thickness': 8}"
+                },
+                {
+                  "name": "about_game_label",
+                  "componentType": "Text",
+                  "jsonParams": "{'text': 'about_game', 'width': 700, 'height': 60, 'textStyle': 'title_text_style', 'anchor': 'topLeft', 'priority': 1}"
+                },
+                {
+                  "name": "about_name_label",
+                  "componentType": "Text",
+                  "jsonParams": "{'text': '@gameName', 'y': 60, 'width': 700, 'height': 40, 'textStyle': 'forest_text_style', 'anchor': 'topLeft', 'priority': 1}"
+                },
+                {
+                  "name": "grid_about_layout",
+                  "componentType": "GridLayout",
+                  "jsonParams": "{'x': 0, 'y': 80, 'colsNum': 2, 'rowsNum': 1, 'width': 660, 'height': 180, 'padTRBL': [5.0, 0.0, 0.0, 0.0]}",
+                  "components": [
+                    { "name": "align_image",
+                      "componentType": "AlignLayout",
+                      "jsonParams": "{'align':'bottomCenter', 'x': 0, 'y': 0, 'width': 140, 'height': 150}",
+                      "components": [
+                        {
+                          "name": "game_icon",
+                          "componentType": "Image",
+                          "jsonParams": "{'src': 'game_icon', 'x': 0, 'y': 0, 'width': 130, 'height': 130, 'anchor': 'topLeft', 'priority': 1}"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "text_frame",
+                      "componentType": "Rect",
+                      "jsonParams": "{'borderColor': '0xFF41612F', 'innerColor': '0xFF6F9643', 'start': [10, 10], 'size': [330, 140], 'anchor': 'topLeft', 'outerRadius': 5, 'innerRadius': 3, 'thickness': 4, 'priority': 1}",
+                      "components": [
+                     {
+                       "name": "version_label",
+                       "componentType": "Text",
+                       "jsonParams": "{'text': 'version', 'y': 5, 'width': 330, 'height': 40, 'textStyle': 'about_text_style', 'anchor': 'topLeft', 'align': 'centerLeft', 'priority': 2}"
+                     },
+                     {
+                       "name": "date_modified_label",
+                       "componentType": "Text",
+                       "jsonParams": "{'text': 'dateModified', 'y': 45, 'width': 330, 'height': 40, 'textStyle': 'about_text_style', 'anchor': 'topLeft', 'align': 'centerLeft', 'priority': 2}"
+                     },
+                     {
+                       "name": "author_label",
+                       "componentType": "Text",
+                       "jsonParams": "{'text': 'authorName', 'y': 85, 'width': 115, 'height': 40, 'textStyle': 'about_text_style', 'anchor': 'topLeft', 'align': 'centerLeft', 'priority': 2}"
+                     },
+                     {
+                       "name": "website_label",
+                       "componentType": "Text",
+                       "jsonParams": "{'text': 'website', 'x': 120, 'y': 85, 'width': 210, 'height': 40, 'textStyle': 'about_url_style', 'anchor': 'topLeft', 'align': 'centerLeft', 'priority': 2, 'gestures': [{'type': 'click', 'actions': [{'type':'navigation', 'func': 'url', 'content': 'http://ai11.link'}]}]}"
+                     }
+                   ]
+                  }
+                 ]
+                },
+                {
+                  "name": "description_frame",
+                  "componentType": "Rect",
+                  "jsonParams": "{'borderColor': '0xFF41612F', 'innerColor': '0xFF6F9643', 'start': [40, 255], 'size': [620, 120], 'anchor': 'topLeft', 'outerRadius': 5, 'innerRadius': 3, 'thickness': 4, 'priority': 1}",
+                  "components": [
+                     {
+                       "name": "description_label",
+                       "componentType": "Text",
+                       "jsonParams": "{'text': '@description', 'x': 0, 'y': 0, 'width': 620, 'height': 120, 'textStyle': 'about_text_style', 'anchor': 'topLeft', 'priority': 2}"
+                     }
+                 ]
+                },
+                {
+                  "name": "attribution_container",
+                  "componentType": "Rect",
+                  "jsonParams": "{'borderColor': '0xFF41612F', 'innerColor': '0xFF6F9643', 'start': [40, 388], 'size': [620, 105], 'anchor': 'topLeft', 'outerRadius': 5, 'innerRadius': 3, 'thickness': 4, 'priority': 1}",
+                  "components": [
+                    {
+                      "name": "attribution_scrollable",
+                      "componentType": "Text",
+                      "jsonParams": "{'text': 'attribution', 'x': 0, 'y': 0, 'width': 605, 'height': 100, 'textStyle': 'about_text_style', 'anchor': 'topLeft', 'priority': 1}"
+                    }
+                  ]
+                },          
+                {
+                  "name": "button_ok",
+                  "componentType": "Button",
+                  "jsonParams": "{'x': 265, 'y': 505, 'width': 160, 'height': 80, 'buttonStyle': 'big_rect_button', 'anchor': 'topLeft', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'navigation', 'func': 'nav', 'content': 'back'}]}]}",
+                  "components": [
+                    {
+                      "name": "button_ok_label",
+                      "componentType": "Text",
+                      "jsonParams": "{'text': 'ok', 'width': 160, 'height': 80, 'textStyle': 'button_text_style', 'anchor': 'topLeft', 'priority': 1}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "scripts": []
+        },
+        {
+          "name": "change_theme_window",
+          "windowType": "simple",
+          "transparent": true,
+          "jsonParams": "",
+          "content": "",
+          "components": [
+            {
+              "name": "change_theme_layout",
+              "componentType": "AdaptiveLayout",
+              "jsonParams": "{'leftSideSize': 0, 'rightSideSize': 0, 'minCentralSize': 100, 'background': ['change_theme_background']}",
+              "components": [
+                {
+                  "name": "change_theme_background",
+                  "componentType": "Image",
+                  "jsonParams": "{'src': 'shadow', 'width': 100, 'height': 100}"
+                },
+                {
+                  "name": "change_theme_frame",
+                  "componentType": "Rect",
+                  "jsonParams": "{'borderColor': '0xFF41612F', 'innerColor': '0xFF6F9643', 'start': [0, 0], 'size': [660, 460], 'anchor': 'topLeft', 'outerRadius': 15, 'innerRadius': 11, 'thickness': 8}"
+                },
+                {
+                  "name": "grid_skin_layout",
+                  "componentType": "GridLayout",
+                  "jsonParams": "{'x': 0, 'y': 0, 'colsNum': 3, 'rowsNum': 2, 'width': 660, 'height': 360, 'padTRBL': [5.0, 5.0, 5.0, 5.0]}",
+                  "components":[
+                     {
+                      "name": "button_forest_skin",
+                      "componentType": "Button",
+                      "jsonParams": "{'x': 5, 'y': 6, 'width': 200, 'height': 200, 'buttonStyle': 'big_frame_button', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'save', 'func': 'saveSettings', 'content': 'default', 'params': {'param': 'currentTheme'}}, {'type':'navigation', 'func': 'nav', 'content': 'back'}]}]}",
+                      "components": [
+                        {
+                          "name": "image_forest_skin",
+                          "componentType": "Image",
+                          "jsonParams": "{'src': 'forest_skin', 'x': 90, 'y': 90, 'width': 170, 'height': 150, 'anchor': 'center', 'priority': 1}"
+                        }
+                      ]
+                     },
+                     {
+                       "name": "button_space_skin",
+                       "componentType": "Button",
+                       "jsonParams": "{'x': 5, 'y': 6, 'width': 200, 'height': 200, 'buttonStyle': 'big_frame_button', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'save', 'func': 'saveSettings', 'content': 'space', 'params': {'param': 'currentTheme'}}, {'type':'navigation', 'func': 'nav', 'content': 'back'}]}]}",
+                       "components": [
+                        {
+                          "name": "image_space_skin",
+                          "componentType": "Image",
+                          "jsonParams": "{'src': 'space_skin', 'x': 90, 'y': 90, 'width': 170, 'height': 150, 'anchor': 'center', 'priority': 1}"
+                        }
+                      ]
+                     },
+                     {
+                       "name": "button_paper_skin",
+                       "componentType": "Button",
+                       "jsonParams": "{'x': 5, 'y': 6, 'width': 185, 'height': 170, 'buttonStyle': 'big_frame_button', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'save', 'func': 'saveSettings', 'content': 'paper', 'params': {'param': 'currentTheme'}}, {'type':'navigation', 'func': 'nav', 'content': 'back'}]}]}",
+                       "components": [
+                        {
+                          "name": "image_paper_skin",
+                          "componentType": "Image",
+                          "jsonParams": "{'src': 'paper_skin', 'x': 90, 'y': 90, 'width': 170, 'height': 150, 'anchor': 'center', 'priority': 1}"
+                        }
+                      ]
+                     },
+                     {
+                      "name": "forest_skin_label",
+                      "componentType": "Text",
+                      "jsonParams": "{'text': 'forest_label', 'y': 50, 'width': 190, 'height': 80, 'textStyle': 'title_text_style', 'anchor': 'topLeft', 'priority': 1}"
+                      },
+                      {
+                        "name": "space_skin_label",
+                        "componentType": "Text",
+                        "jsonParams": "{'text': 'space_label', 'y': 50, 'width': 190, 'height': 80, 'textStyle': 'title_text_style', 'anchor': 'topLeft', 'priority': 1}"
+                      },
+                      {
+                        "name": "paper_skin_label",
+                        "componentType": "Text",
+                        "jsonParams": "{'text': 'paper_label', 'y': 50, 'width': 190, 'height': 80, 'textStyle': 'title_text_style', 'anchor': 'topLeft', 'priority': 1}"
+                      }
+                  ]
+                },
+                {
+                  "name": "button_ok",
+                  "componentType": "Button",
+                  "jsonParams": "{'x': 255, 'y': 350, 'width': 160, 'height': 80, 'buttonStyle': 'big_rect_button', 'anchor': 'topLeft', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'navigation', 'func': 'nav', 'content': 'back'}]}]}",
+                  "components": [
+                    {
+                      "name": "button_ok_label",
+                      "componentType": "Text",
+                      "jsonParams": "{'text': 'ok', 'width': 160, 'height': 80, 'textStyle': 'button_text_style', 'anchor': 'topLeft', 'priority': 1}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "scripts": []
+        },
+        {
+          "name": "exit_dialog",
+          "windowType": "simple",
+          "transparent": true,
+          "jsonParams": "",
+          "content": "",
+          "components": [
+            {
+              "name": "exit_layout",
+              "componentType": "AdaptiveLayout",
+              "jsonParams": "{'leftSideSize': 0, 'rightSideSize': 0, 'minCentralSize': 100, 'background': ['exit_background']}",
+              "components": [
+                {
+                  "name": "exit_background",
+                  "componentType": "Image",
+                  "jsonParams": "{'src': 'shadow', 'width': 100, 'height': 100}"
+                },
+                {
+                  "name": "exit_frame",
+                  "componentType": "Rect",
+                  "jsonParams": "{'borderColor': '0xFF41612F', 'innerColor': '0xFF6F9643', 'start': [0, 0], 'size': [600, 350], 'anchor': 'topLeft', 'outerRadius': 15, 'innerRadius': 11, 'thickness': 8}"
+                },
+                {
+                  "name": "thanks_label",
+                  "componentType": "Text",
+                  "jsonParams": "{'text': 'thanks_label', 'y': 10, 'width': 600, 'height': 200, 'textStyle': 'big_title_text_style', 'anchor': 'topLeft', 'priority': 1}"
+                },
+                {
+                  "name": "button_game_exit",
+                  "componentType": "Button",
+                  "jsonParams": "{'x': 110, 'y': 230, 'width': 160, 'height': 80, 'buttonStyle': 'big_rect_button', 'anchor': 'topLeft', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'navigation', 'func': 'nav', 'content': 'exit'}]}]}",
+                  "components": [
+                    {
+                      "name": "button_exit_label",
+                      "componentType": "Text",
+                      "jsonParams": "{'text': 'exit_label', 'width': 160, 'height': 80, 'textStyle': 'button_text_style', 'anchor': 'topLeft', 'priority': 1}"
+                    }
+                  ]
+                },
+                {
+                  "name": "button_back",
+                  "componentType": "Button",
+                  "jsonParams": "{'x': 330, 'y': 230, 'width': 160, 'height': 80, 'buttonStyle': 'big_rect_button', 'anchor': 'topLeft', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'navigation', 'func': 'nav', 'content': 'back'}]}]}",
+                  "components": [
+                    {
+                      "name": "button_back_label",
+                      "componentType": "Text",
+                      "jsonParams": "{'text': 'back_label', 'width': 160, 'height': 80, 'textStyle': 'button_text_style', 'anchor': 'topLeft', 'priority': 1}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "scripts": []
+        },
+        {
+          "name": "levels_window",
+          "windowType": "simple",
+          "transparent": true,
+          "jsonParams": "",
+          "content": "",
+          "components": [
+            {
+              "name": "select_levels_layout",
+              "componentType": "AdaptiveLayout",
+              "jsonParams": "{'leftSideSize': 0, 'rightSideSize': 0, 'minCentralSize': 100, 'background': ['levels_background']}",
+              "components": [
+                {
+                  "name": "levels_background",
+                  "componentType": "Image",
+                  "jsonParams": "{'src': 'shadow', 'width': 100, 'height': 100}"
+                },
+                {
+                  "name": "levels_frame",
+                  "componentType": "Rect",
+                  "jsonParams": "{'borderColor': '0xFF41612F', 'innerColor': '0xFF6F9643', 'start': [0, 0], 'size': [400, 400], 'anchor': 'topLeft', 'outerRadius': 15, 'innerRadius': 11, 'thickness': 8}"
+                },
+                {
+                  "name": "button_exit_levels_menu",
+                  "componentType": "Button",
+                  "jsonParams": "{'x': -30, 'y': -30, 'buttonStyle': 'round_button', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'navigation', 'func': 'nav', 'content': 'back'}]}]}", 
+                  "components": [
+                    {
+                      "name": "exit_levels_menu_image",
+                      "componentType": "Image",
+                      "jsonParams": "{'src': 'back', 'x': 40, 'y': 40,  'width': 40, 'height': 40, 'anchor': 'center', 'priority': 1}"
+                    }
+                  ]
+                },
+                {
+                  "name": "levels_title", 
+                  "componentType": "Text",
+                  "jsonParams": "{'text': 'levels_title', 'x': 200, 'y': 50, 'size': [280, 70], 'textStyle': 'title_text_style', 'anchor': 'center', 'priority': 1}"
+                },
+                {
+                  "name": "button_1_level",
+                  "componentType": "Button",
+                  "jsonParams": "{'x': 70, 'y': 100, 'buttonStyle': 'middle_rect_button', 'anchor': 'topLeft', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'navigation', 'func': 'show', 'content': 'gameplay'}]}]}",
+                  "components": [
+                    {
+                      "name": "button_1_level_label",
+                      "componentType": "Text",
+                      "jsonParams": "{'text': 'beginner', 'width': 280, 'height': 80, 'textStyle': 'button_text_style', 'anchor': 'topLeft', 'priority': 1}"
+                    }
+                  ]
+                },
+                {
+                  "name": "button_2_level",
+                  "componentType": "Button",
+                  "jsonParams": "{'x': 70, 'y': 200, 'buttonStyle': 'middle_rect_button', 'anchor': 'topLeft', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'navigation', 'func': 'nav', 'content': ''}]}]}",
+                  "components": [
+                    {
+                      "name": "button_2_level_label",
+                      "componentType": "Text",
+                      "jsonParams": "{'text': 'master', 'width': 280, 'height': 80, 'textStyle': 'button_text_style', 'anchor': 'topLeft', 'priority': 1}"
+                    }
+                  ]
+                },
+                {
+                  "name": "button_3_level",
+                  "componentType": "Button",
+                  "jsonParams": "{'x': 70, 'y': 300, 'buttonStyle': 'middle_rect_button', 'anchor': 'topLeft', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'navigation', 'func': 'nav', 'content': ''}]}]}",
+                  "components": [
+                    {
+                      "name": "button_3_level_label",
+                      "componentType": "Text",
+                      "jsonParams": "{'text': 'grandmaster', 'width': 280, 'height': 80, 'textStyle': 'button_text_style', 'anchor': 'topLeft', 'priority': 1}"
+                    }
+                  ]
+                }   
+              ]
+            }
+          ],
+          "scripts": []
+        },
+        {
+          "name": "pause_game_window",
+          "windowType": "simple",
+          "transparent": true,
+          "jsonParams": "",
+          "content": "",
+          "components": [
+            {
+              "name": "pause_game_layout",
+              "componentType": "AdaptiveLayout",
+              "jsonParams": "{'leftSideSize': 0, 'rightSideSize': 0, 'minCentralSize': 100, 'background': ['change_theme_background']}",
+              "components": [
+                {
+                  "name": "levels_background",
+                  "componentType": "Image",
+                  "jsonParams": "{'src': 'shadow', 'width': 100, 'height': 100}"
+                },
+                {
+                  "name": "levels_frame",
+                  "componentType": "Rect",
+                  "jsonParams": "{'borderColor': '0xFF41612F', 'innerColor': '0xFF6F9643', 'start': [0, 0], 'size': [300, 360], 'anchor': 'topLeft', 'outerRadius': 15, 'innerRadius': 11, 'thickness': 8}"
+                },
+
+                {
+                  "name": "pause_title", 
+                  "componentType": "Text", 
+                  "jsonParams": "{'text': 'pause_title', 'x': 150, 'y': 50, 'size': [280, 70], 'textStyle': 'forest_text_style', 'anchor': 'center', 'priority': 1}"
+                },
+                {
+                  "name": "pause_animation",
+                  "componentType": "Animation",
+                  "jsonParams": "{'src': 'cat_is_waiting', 'x': 150, 'y': 170, 'width': 300}"
+                },
+                {
+                  "name": "button_ok",
+                  "componentType": "Button",
+                  "jsonParams": "{'x': 70, 'y': 240, 'width': 160, 'height': 80, 'buttonStyle': 'big_rect_button', 'anchor': 'topLeft', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'navigation', 'func': 'nav', 'content': 'back'}]}]}",
+                  "components": [
+                    {
+                      "name": "button_ok_label",
+                      "componentType": "Text",
+                      "jsonParams": "{'text': 'ok', 'width': 160, 'height': 80, 'textStyle': 'button_text_style', 'anchor': 'topLeft', 'priority': 1}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "scripts": []
+        },
+        
+        
+        {
+          "name": "gameplay",
+          "windowType": "worldWindow",
+          "transparent": false,
+          "jsonParams": "",
+          "content": "world_main.game_level",
+          "components": [],
+          "scripts": []
+        }
+      ],
+      "jsonParams": "{'initialRoute': 'main_menu'}"
+    },
+    "worlds": [
+      {
+        "name": "world_main",
+        "type": "turnBased",
+        "active": true,
+        "rules": {
+          "maxPlayers": 2,
+          "goalType": "captureField"
+        },
+        "physics": {
+          "gravity": false,
+          "collisionDetection": false
+        },
+        "focusField": 0,
+        "jsonParams": "",
+        "fields": [
+          {
+            "name": "game_level",
+            "fieldType": "staticField",
+            "addresses": {
+              "addressType": "cells",
+              "gridCellType": "square",
+              "focusAddress": "",
+              "grid": []
+            },
+            "jsonParams": "",
+            "components": [
+              {
+                "name": "level_layout",
+                "componentType": "AdaptiveLayout",
+                "jsonParams": "{'leftSideSize': 80, 'rightSideSize': 100, 'minCentralSize': 100, 'leftAlign': 0.6, 'rightAlign': 0.3, 'allowIncrease': false, 'leftComponents': ['button_level_back', 'button_level_pause', 'button_level_restart', 'button_level_help', 'button_level_music'], 'rightComponents': ['frame_1', 'frame_2', 'frame_3', 'frame_4', 'frame_5', 'empty_lebel'], 'background': ['game_background_back', 'game_background_front', 'game_back_animation_1', 'game_back_animation_2', 'game_back_animation_3', 'game_back_animation_4', 'game_back_animation_5']}",
+                "components": [
+                  {
+                    "name": "game_background_back",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_background_forest_back', 'width': 3000, 'height': 2000}"
+                  },
+                  {
+                    "name": "game_back_animation_1",
+                    "componentType": "Animation",
+                    "jsonParams": "{'src': 'clouds', 'x': 1500, 'y': 670, 'width': 750, 'height': 350}"
+                  },
+                  {
+                    "name": "game_background_front",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_background_forest_front', 'width': 3000, 'height': 2000}"
+                  },
+                  {
+                    "name": "game_back_animation_2",
+                    "componentType": "Animation",
+                    "jsonParams": "{'src': 'butterfly', 'x': 1950, 'y': 1300, 'width': 100, 'height': 100}"
+                  },
+                  {
+                    "name": "game_back_animation_3",
+                    "componentType": "Animation",
+                    "jsonParams": "{'src': 'woodpecker', 'x': 2320, 'y': 700, 'width': 800, 'height': 600}"
+                  },
+                  {
+                    "name": "game_back_animation_4",
+                    "componentType": "Animation",
+                    "jsonParams": "{'src': 'rabbit', 'x': 1050, 'y': 1350, 'width': 200, 'height': 200}"
+                  },
+                  {
+                    "name": "game_back_animation_5",
+                    "componentType": "Animation",
+                    "jsonParams": "{'src': 'flower', 'x': 740, 'y': 1500, 'width': 270, 'height': 580}"
+                  },
+                  {
+                    "name": "gameplay_size",
+                    "componentType": "Empty",
+                    "jsonParams": "{'x': -114, 'y': -114,  'width': 480, 'height': 480}"
+                  },
+                  {
+                    "name": "level_cell_01",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 0, 'y': 0,  'width': 120, 'height': 120, 'anchor': 'center', 'angle': 0.0}"
+                  },
+                  {
+                    "name": "level_cell_02",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 126, 'y': 0,  'width': 120, 'height': 120, 'anchor': 'center', 'angle': 90.0}"
+                  },
+                  {
+                    "name": "level_cell_03",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 252, 'y': 0,  'width': 120, 'height': 120, 'anchor': 'center', 'angle': 180.0}"
+                  },
+                  {
+                    "name": "level_cell_04",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 0, 'y': 126,  'width': 120, 'height': 120, 'anchor': 'center', 'angle': 270.0}"
+                  },
+                  {
+                    "name": "level_cell_05",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 126, 'y': 126,  'width': 120, 'height': 120, 'anchor': 'center', 'angle': 0.0}"
+                  },
+                  {
+                    "name": "level_cell_06",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 252, 'y': 126,  'width': 120, 'height': 120, 'anchor': 'center', 'angle': 90.0}"
+                  },
+                  {
+                    "name": "level_cell_07",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 0, 'y': 252,  'width': 120, 'height': 120, 'anchor': 'center', 'angle': 180.0}"
+                  },
+                  {
+                    "name": "level_cell_08",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 126, 'y': 252,  'width': 120, 'height': 120, 'anchor': 'center', 'angle': 270.0}"
+                  },
+                  {
+                    "name": "level_cell_09",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 252, 'y': 252,  'width': 120, 'height': 120, 'anchor': 'center', 'angle': 0.0}"
+                  },
+                  {
+                    "name": "button_level_back",
+                    "componentType": "Button",
+                    "jsonParams": "{'x': 0, 'y': 0, 'width': 80, 'height': 80, 'buttonStyle': 'round_button', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'navigation', 'func': 'nav', 'content': 'back'},{'type':'audio', 'func': 'playMusic', 'content': 'main_menu_music'}]}]}",
+                    "components": [
+                      {
+                        "name": "back_image",
+                        "componentType": "Image",
+                        "jsonParams": "{'src': 'back', 'x': 40, 'y': 40,  'width': 50, 'height': 50, 'anchor': 'center', 'priority': 1}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "button_level_pause",
+                    "componentType": "Button",
+                    "jsonParams": "{'x': 0, 'y': 90, 'width': 80, 'height': 80, 'buttonStyle': 'round_button', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'navigation', 'func': 'show', 'content': 'pause_game_window'}]}]}",
+                    "components": [
+                      {
+                        "name": "pause_image",
+                        "componentType": "Image",
+                        "jsonParams": "{'src': 'pause', 'x': 40, 'y': 40,  'width': 40, 'height': 40, 'anchor': 'center', 'priority': 1}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "button_level_restart",
+                    "componentType": "Button",
+                    "jsonParams": "{'x': 0, 'y': 180, 'width': 80, 'height': 80, 'buttonStyle': 'round_button', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'navigation', 'func': 'show', 'content': 'restart'}]}]}",
+                    "components": [
+                      {
+                        "name": "restart_image",
+                        "componentType": "Image",
+                        "jsonParams": "{'src': 'restart', 'x': 40, 'y': 42,  'width': 50, 'height': 50, 'anchor': 'center', 'priority': 1}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "button_level_help",
+                    "componentType": "Button",
+                    "jsonParams": "{'x': 0, 'y': 270, 'width': 80, 'height': 80, 'buttonStyle': 'round_button', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'navigation', 'func': 'show', 'content': 'help'}]}]}",
+                    "components": [
+                      {
+                        "name": "help_image",
+                        "componentType": "Image",
+                        "jsonParams": "{'src': 'help', 'x': 40, 'y': 40,  'width': 50, 'height': 50, 'anchor': 'center', 'priority': 1}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "button_level_music",
+                    "componentType": "Music",
+                    "jsonParams": "{'src': 'gameplay_music', 'x': 0, 'y': 360, 'width': 80, 'height': 100, 'skinPlay': 'music_on', 'skinPause': 'music_off', 'autoPlay': true, 'hide': false, 'loop': true}"
+                  },
+                  {
+                    "name": "frame_1",
+                    "componentType": "Rect",
+                    "jsonParams": "{'borderColor': '0x00000000', 'innerColor': '0xFFE9B635', 'start':[0, 0], 'size': [100, 100], 'innerRadius': 30, 'outerRadius': 30, 'thickness': 0, 'anchor': 'topLeft'}",
+                    "components": [
+                      {
+                        "name": "text_level_value",
+                        "componentType": "Text",
+                        "jsonParams": "{'text': '1', 'x': 20, 'y': 5, 'width': 60, 'height': 40, 'textStyle': 'forest_text_style'}"
+                      },
+                      {
+                        "name": "text_level_label",
+                        "componentType": "Text",
+                        "jsonParams": "{'text': 'level_label', 'x': -5, 'y': 45, 'width': 110, 'height': 50, 'textStyle': 'forest_text_style'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "frame_2",
+                    "componentType": "Rect",
+                    "jsonParams": "{'borderColor': '0x00000000', 'innerColor': '0xFFE9B635', 'start':[0, 110], 'size': [100, 100], 'innerRadius': 30, 'outerRadius': 30, 'thickness': 0, 'anchor': 'center'}",
+                    "components": [
+                      {
+                        "name": "text_score_value",
+                        "componentType": "Text",
+                        "jsonParams": "{'text': '0:0', 'x': 20, 'y': 5, 'width': 60, 'height': 40, 'textStyle': 'forest_text_style'}"
+                      },
+                      {
+                        "name": "text_score_label",
+                        "componentType": "Text",
+                        "jsonParams": "{'text': 'score_label', 'x': -5, 'y': 45, 'width': 110, 'height': 50, 'textStyle': 'forest_text_style'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "frame_3",
+                    "componentType": "Rect",
+                    "jsonParams": "{'borderColor': '0x00000000', 'innerColor': '0xFFE9B635', 'start':[0, 220], 'size': [100, 100], 'innerRadius': 30, 'outerRadius': 30, 'thickness': 0, 'anchor': 'center'}",
+                    "components": [
+                      {
+                        "name": "text_time_value",
+                        "componentType": "Text",
+                        "jsonParams": "{'text': '00:01', 'x': 10, 'y': 5, 'width': 80, 'height': 40, 'textStyle': 'forest_text_style'}"
+                      },
+                      {
+                        "name": "text_time_label",
+                        "componentType": "Text",
+                        "jsonParams": "{'text': 'time_label', 'x': -5, 'y': 45, 'width': 110, 'height': 50, 'textStyle': 'forest_text_style'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "frame_4",
+                    "componentType": "Rect",
+                    "jsonParams": "{'borderColor': '0x00000000', 'innerColor': '0xFFE9B635', 'start':[0, 330], 'size': [100, 100], 'innerRadius': 30, 'outerRadius': 30, 'thickness': 0, 'anchor': 'center'}",
+                    "components": [
+                      {
+                        "name": "text_turn_value",
+                        "componentType": "Text",
+                        "jsonParams": "{'text': 'your', 'x': 10, 'y': 5, 'width': 80, 'height': 40, 'textStyle': 'forest_text_style'}"
+                      },
+                      {
+                        "name": "text_turn_label",
+                        "componentType": "Text",
+                        "jsonParams": "{'text': 'turn_label', 'x': -5, 'y': 45, 'width': 110, 'height': 50, 'textStyle': 'forest_text_style'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "frame_5",
+                    "componentType": "Rect",
+                    "jsonParams": "{'borderColor': '0x00000000', 'innerColor': '0xFFE9B635', 'start':[0, 440], 'size': [100, 100], 'innerRadius': 30, 'outerRadius': 30, 'thickness': 0, 'anchor': 'center'}",
+                    "components": [
+                      {
+                        "name": "text_lives_value",
+                        "componentType": "Text",
+                        "jsonParams": "{'text': '3/3', 'x': 20, 'y': 5, 'width': 60, 'height': 40, 'textStyle': 'forest_text_style'}"
+                      },
+                      {
+                        "name": "text_lives_label",
+                        "componentType": "Text",
+                        "jsonParams": "{'text': 'lives_label', 'x': -5, 'y': 45, 'width': 110, 'height': 50, 'textStyle': 'forest_text_style'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "empty_lebel",
+                    "componentType": "Empty",
+                    "jsonParams": "{'x': 0, 'y': 440,  'width': 100, 'height': 100}"
+                  }
+                ]
+              }
+            ],
+            "scripts": []
+          }
+        ],
+        "scripts": []
+      }
+    ]
+  }
+}
