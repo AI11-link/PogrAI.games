@@ -13,7 +13,7 @@
       "version": {
         "major": 1,
         "minor": 0,
-        "patch": 0
+        "patch": 1
       },
       "isInDevelopment": true,
       "icon": "game_icon",
@@ -43,11 +43,11 @@
           "jsonParams": ""
         },
         {
-          "name": "level_background_forest_back",
+          "name": "level_background",
           "type": "image",
           "path": "level_background_forest_back.svg",
           "content": "",
-          "jsonParams": ""
+          "jsonParams": "{'theme': 'default'}"
         },
         {
           "name": "level_background_forest_front",
@@ -217,6 +217,7 @@
         }
       ],
       "particleSystems": [],
+      "themes": ["space", "paper"],
       "styles": [
         {
           "name": "forest_text_style",
@@ -859,7 +860,7 @@
                 {
                   "name": "level_background_back",
                   "componentType": "Image",
-                  "jsonParams": "{'src': 'level_background_forest_back', 'width': 3000, 'height': 2000}"
+                  "jsonParams": "{'src': 'level_background', 'width': 3000, 'height': 2000}"
                 },
                 {
                   "name": "level_back_animation_1",
@@ -1376,8 +1377,6 @@
           ],
           "scripts": []
         },
-        
-        
         {
           "name": "gameplay",
           "windowType": "worldWindow",
@@ -1425,7 +1424,7 @@
                   {
                     "name": "game_background_back",
                     "componentType": "Image",
-                    "jsonParams": "{'src': 'level_background_forest_back', 'width': 3000, 'height': 2000}"
+                    "jsonParams": "{'src': 'level_background', 'width': 3000, 'height': 2000}"
                   },
                   {
                     "name": "game_back_animation_1",
