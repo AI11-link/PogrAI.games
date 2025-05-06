@@ -214,6 +214,13 @@
           "path": "cat_waiting.json",
           "content": "",
           "jsonParams": "{'controller': {'duration': 5.0, 'alternate': true, 'infinite': true}}"
+        },
+        {
+          "name": "win",
+          "type": "animation",
+          "path": "win.json",
+          "content": "",
+          "jsonParams": "{'controller': {'duration': 5.0, 'alternate': true, 'infinite': true}}"
         }
       ],
       "particleSystems": [],
@@ -814,6 +821,40 @@
                 "text": "Папір"
               }
             ]
+          },
+          {
+            "name": "you_win_title",
+            "translations": [
+              {
+                "lang": "en",
+                "text": "YOU WIN"
+              },
+              {
+                "lang": "ru",
+                "text": "Победа!"
+              },
+              {
+                "lang": "uk",
+                "text": "Ти виграв!"
+              }
+            ]
+          },
+          {
+            "name": "ai_win_title",
+            "translations": [
+              {
+                "lang": "en",
+                "text": "AI WIN"
+              },
+              {
+                "lang": "ru",
+                "text": "ИИ выиграл"
+              },
+              {
+                "lang": "uk",
+                "text":  "ШІ виграв!"
+              }
+            ]
           }
         ]
       }
@@ -1338,7 +1379,7 @@
             {
               "name": "pause_game_layout",
               "componentType": "AdaptiveLayout",
-              "jsonParams": "{'leftSideSize': 0, 'rightSideSize': 0, 'minCentralSize': 100, 'background': ['change_theme_background']}",
+              "jsonParams": "{'leftSideSize': 0, 'rightSideSize': 0, 'minCentralSize': 100, 'background': ['levels_background']}",
               "components": [
                 {
                   "name": "levels_background",
@@ -1365,6 +1406,101 @@
                   "name": "button_ok",
                   "componentType": "Button",
                   "jsonParams": "{'x': 70, 'y': 240, 'width': 160, 'height': 80, 'buttonStyle': 'big_rect_button', 'anchor': 'topLeft', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'navigation', 'func': 'nav', 'content': 'back'}]}]}",
+                  "components": [
+                    {
+                      "name": "button_ok_label",
+                      "componentType": "Text",
+                      "jsonParams": "{'text': 'ok', 'width': 160, 'height': 80, 'textStyle': 'button_text_style', 'anchor': 'topLeft', 'priority': 1}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "scripts": []
+        },
+        {
+          "name": "you_win_game_window",
+          "windowType": "simple",
+          "transparent": true,
+          "jsonParams": "",
+          "content": "",
+          "components": [
+            {
+              "name": "you_win_game_layout",
+              "componentType": "AdaptiveLayout",
+              "jsonParams": "{'leftSideSize': 0, 'rightSideSize': 0, 'minCentralSize': 100, 'background': ['win_background']}",
+              "components": [
+                {
+                  "name": "win_background",
+                  "componentType": "Image",
+                  "jsonParams": "{'src': 'shadow', 'width': 100, 'height': 100}"
+                },
+                {
+                  "name": "levels_frame",
+                  "componentType": "Rect",
+                  "jsonParams": "{'borderColor': '0xFF41612F', 'innerColor': '0xFF6F9643', 'start': [0, 0], 'size': [300, 200], 'anchor': 'topLeft', 'outerRadius': 15, 'innerRadius': 11, 'thickness': 8}"
+                },
+
+                {
+                  "name": "you_win_title", 
+                  "componentType": "Text", 
+                  "jsonParams": "{'text': 'you_win_title', 'x': 150, 'y': 50, 'size': [280, 70], 'textStyle': 'forest_text_style', 'anchor': 'center', 'priority': 1}"
+                },
+                {
+                  "name": "win_animation",
+                  "componentType": "Animation",
+                  "jsonParams": "{'src': 'win', 'x': 150, 'y': 40, 'width': 300}"
+                },
+                {
+                  "name": "button_ok",
+                  "componentType": "Button",
+                  "jsonParams": "{'x': 70, 'y': 100, 'width': 160, 'height': 80, 'buttonStyle': 'big_rect_button', 'anchor': 'topLeft', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'navigation', 'func': 'nav', 'content': 'back'}]}]}",
+                  "components": [
+                    {
+                      "name": "button_ok_label",
+                      "componentType": "Text",
+                      "jsonParams": "{'text': 'ok', 'width': 160, 'height': 80, 'textStyle': 'button_text_style', 'anchor': 'topLeft', 'priority': 1}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "scripts": []
+        },
+        {
+          "name": "ai_win_game_window",
+          "windowType": "simple",
+          "transparent": true,
+          "jsonParams": "",
+          "content": "",
+          "components": [
+            {
+              "name": "ai_win_game_layout",
+              "componentType": "AdaptiveLayout",
+              "jsonParams": "{'leftSideSize': 0, 'rightSideSize': 0, 'minCentralSize': 100, 'background': ['ai_win_background']}",
+              "components": [
+                {
+                  "name": "ai_win_background",
+                  "componentType": "Image",
+                  "jsonParams": "{'src': 'shadow', 'width': 100, 'height': 100}"
+                },
+                {
+                  "name": "levels_frame",
+                  "componentType": "Rect",
+                  "jsonParams": "{'borderColor': '0xFF41612F', 'innerColor': '0xFF6F9643', 'start': [0, 0], 'size': [300, 200], 'anchor': 'topLeft', 'outerRadius': 15, 'innerRadius': 11, 'thickness': 8}"
+                },
+
+                {
+                  "name": "ai_win_title", 
+                  "componentType": "Text", 
+                  "jsonParams": "{'text': 'ai_win_title', 'x': 150, 'y': 50, 'size': [280, 70], 'textStyle': 'forest_text_style', 'anchor': 'center', 'priority': 1}"
+                },
+                {
+                  "name": "button_ok",
+                  "componentType": "Button",
+                  "jsonParams": "{'x': 70, 'y': 100, 'width': 160, 'height': 80, 'buttonStyle': 'big_rect_button', 'anchor': 'topLeft', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'navigation', 'func': 'nav', 'content': 'back'}]}]}",
                   "components": [
                     {
                       "name": "button_ok_label",
@@ -1534,7 +1670,7 @@
                   {
                     "name": "button_level_restart",
                     "componentType": "Button",
-                    "jsonParams": "{'x': 0, 'y': 180, 'width': 80, 'height': 80, 'buttonStyle': 'round_button', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'navigation', 'func': 'show', 'content': 'restart'}]}]}",
+                    "jsonParams": "{'x': 0, 'y': 180, 'width': 80, 'height': 80, 'buttonStyle': 'round_button', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'navigation', 'func': 'show', 'content': 'you_win_game_window'}]}]}",
                     "components": [
                       {
                         "name": "restart_image",
@@ -1546,7 +1682,7 @@
                   {
                     "name": "button_level_help",
                     "componentType": "Button",
-                    "jsonParams": "{'x': 0, 'y': 270, 'width': 80, 'height': 80, 'buttonStyle': 'round_button', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'navigation', 'func': 'show', 'content': 'help'}]}]}",
+                    "jsonParams": "{'x': 0, 'y': 270, 'width': 80, 'height': 80, 'buttonStyle': 'round_button', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'navigation', 'func': 'show', 'content': 'ai_win_game_window'}]}]}",
                     "components": [
                       {
                         "name": "help_image",
