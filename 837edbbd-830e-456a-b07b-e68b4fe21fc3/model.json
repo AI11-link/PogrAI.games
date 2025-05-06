@@ -849,6 +849,7 @@
           "name": "main_menu",
           "windowType": "simple",
           "transparent": false,
+          "isActive": true,
           "jsonParams": "",
           "content": "",
           "components": [
