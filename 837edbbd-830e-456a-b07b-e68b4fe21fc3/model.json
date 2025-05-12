@@ -890,7 +890,7 @@
       "jsonParams": ""
     },
     "scriptManager": {
-      "scripts": [],
+      "scripts": ["test.dart", "test2.dart"],
       "jsonParams": ""
     },
     "eventManager": {
@@ -1378,7 +1378,7 @@
                 {
                   "name": "button_3_level",
                   "componentType": "Button",
-                  "jsonParams": "{'x': 70, 'y': 300, 'buttonStyle': 'middle_rect_button', 'anchor': 'topLeft', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'navigation', 'func': 'nav', 'content': ''}]}]}",
+                  "jsonParams": "{'x': 70, 'y': 300, 'buttonStyle': 'middle_rect_button', 'anchor': 'topLeft', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'function', 'func': 'game::test::myFunc', 'params': {'count': 3, 'str': 'MY STR'}}]}]}",
                   "components": [
                     {
                       "name": "button_3_level_label",
