@@ -38,112 +38,112 @@
         {
           "name": "game_icon",
           "type": "image",
-          "path": "icon.svg",
+          "path": "assets/images/icons/icon.svg",
           "content": "",
           "jsonParams": ""
         },
         {
           "name": "level_background",
           "type": "image",
-          "path": "level_background_forest_back.svg",
+          "path": "assets/images/backgrounds/level_background_forest_back.svg",
           "content": "",
           "jsonParams": "{'theme': 'default'}"
         },
         {
           "name": "level_background_forest_front",
           "type": "image",
-          "path": "level_background_forest_front.svg",
+          "path": "assets/images/backgrounds/level_background_forest_front.svg",
           "content": "",
           "jsonParams": ""
         },
         {
           "name": "level_cell",
           "type": "image",
-          "path": "cell.svg",
+          "path": "assets/images/board/cell.svg",
           "content": "",
           "jsonParams": ""
         },
         {
           "name": "exit",
           "type": "image",
-          "path": "exit.svg",
+          "path": "assets/images/icons/exit.svg",
           "content": "",
           "jsonParams": ""
         },
         {
           "name": "info",
           "type": "image",
-          "path": "info.svg",
+          "path": "assets/images/icons/info.svg",
           "content": "",
           "jsonParams": ""
         },
         {
           "name": "back",
           "type": "image",
-          "path": "back.svg",
+          "path": "assets/images/icons/back.svg",
           "content": "",
           "jsonParams": ""
         },
         {
           "name": "music_on",
           "type": "image",
-          "path": "music_on.svg",
+          "path": "assets/images/icons/music_on.svg",
           "content": "",
           "jsonParams": ""
         },
         {
           "name": "music_off",
           "type": "image",
-          "path": "music_off.svg",
+          "path": "assets/images/icons/music_off.svg",
           "content": "",
           "jsonParams": ""
         },
         {
           "name": "pause",
           "type": "image",
-          "path": "pause.svg",
+          "path": "assets/images/icons/pause.svg",
           "content": "",
           "jsonParams": ""
         },
         {
           "name": "restart",
           "type": "image",
-          "path": "restart.svg",
+          "path": "assets/images/icons/restart.svg",
           "content": "",
           "jsonParams": ""
         },
         {
           "name": "help",
           "type": "image",
-          "path": "help.svg",
+          "path": "assets/images/icons/help.svg",
           "content": "",
           "jsonParams": ""
         },
         {
           "name": "shadow",
           "type": "image",
-          "path": "shadow.png",
+          "path": "assets/images/shadows/shadow.png",
           "content": "",
           "jsonParams": ""
         },
         {
           "name": "forest_skin",
           "type": "image",
-          "path": "forest_skin.png",
+          "path": "assets/images/skins/forest_skin.png",
           "content": "",
           "jsonParams": ""
         },
         {
           "name": "space_skin",
           "type": "image",
-          "path": "space_skin.png",
+          "path": "assets/images/skins/space_skin.png",
           "content": "",
           "jsonParams": ""
         },
         {
           "name": "paper_skin",
           "type": "image",
-          "path": "paper_skin.png",
+          "path": "assets/images/skins/paper_skin.png",
           "content": "",
           "jsonParams": ""
         }
@@ -152,21 +152,21 @@
         {
           "name": "gameplay_music",
           "type": "music",
-          "path": "background_level.mp3",
+          "path": "assets/audio/music/background_level.mp3",
           "content": "",
           "jsonParams": ""
         },
         {
           "name": "main_menu_music",
           "type": "music",
-          "path": "background_main_menu.mp3",
+          "path": "assets/audio/music/background_main_menu.mp3",
           "content": "",
           "jsonParams": ""
         },
         {
           "name": "button_click",
           "type": "sound",
-          "path": "button_click.mp3",
+          "path": "assets/audio/sounds/button_click.mp3",
           "content": "",
           "jsonParams": ""
         }
@@ -176,49 +176,49 @@
         {
           "name": "butterfly",
           "type": "animation",
-          "path": "butterfly.json",
+          "path": "assets/animations/butterfly.json",
           "content": "",
           "jsonParams": "{'controller': {'duration': 7.0, 'startDelay': 5, 'alternate': true, 'infinite': true, 'atMaxDuration': 5.0, 'atMinDuration': 5.0 }}"
         },
         {
           "name": "woodpecker",
           "type": "animation",
-          "path": "woodpecker.json",
+          "path": "assets/animations/woodpecker.json",
           "content": "",
           "jsonParams": "{'controller': {'duration': 7.0, 'infinite': true}}"
         },
         {
           "name": "clouds",
           "type": "animation",
-          "path": "clouds.json",
+          "path": "assets/animations/clouds.json",
           "content": "",
           "jsonParams": "{'controller': {'duration': 60.0, 'infinite': true}}"
         },
         {
           "name": "rabbit",
           "type": "animation",
-          "path": "rabbit.json",
+          "path": "assets/animations/rabbit.json",
           "content": "",
           "jsonParams": "{'controller': {'duration': 7.0, 'startDelay': 10, 'infinite': true, 'atMaxDuration': 20.0}}"
         },
         {
           "name": "flower",
           "type": "animation",
-          "path": "flower.json",
+          "path": "assets/animations/flower.json",
           "content": "",
           "jsonParams": "{'controller': {'duration': 5.0, 'alternate': true, 'infinite': true}}"
         },
         {
           "name": "cat_is_waiting",
           "type": "animation",
-          "path": "cat_waiting.json",
+          "path": "assets/animations/cat_waiting.json",
           "content": "",
           "jsonParams": "{'controller': {'duration': 5.0, 'alternate': true, 'infinite': true}}"
         },
         {
           "name": "win",
           "type": "animation",
-          "path": "win.json",
+          "path": "assets/animations/win.json",
           "content": "",
           "jsonParams": "{'controller': {'duration': 5.0, 'alternate': true, 'infinite': true}}"
         }
