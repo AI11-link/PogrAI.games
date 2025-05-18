@@ -13,7 +13,7 @@
       "version": {
         "major": 1,
         "minor": 0,
-        "patch": 2
+        "patch": 4
       },
       "isInDevelopment": true,
       "icon": "game_icon",
@@ -109,13 +109,6 @@
           "name": "restart",
           "type": "image",
           "path": "assets/images/icons/restart.svg",
-          "content": "",
-          "jsonParams": ""
-        },
-        {
-          "name": "help",
-          "type": "image",
-          "path": "assets/images/icons/help.svg",
           "content": "",
           "jsonParams": ""
         },
@@ -229,7 +222,7 @@
         {
           "name": "forest_text_style",
           "type": "textStyle",
-          "jsonParams": "{'fontFamily': 'Neucha', 'color': '0xFF5E1308', 'backgroundColor':'0x00000000', 'fontSize': 30, 'shadows': [{'color':'0xFF831B10', 'offsetX': 2.0, 'offsetY': 2.0, 'blurRadius': 2.0}]}"
+          "jsonParams": "{'fontFamily': 'Neucha', 'color': '0xFF5E1308', 'backgroundColor':'0x00000000', 'fontSize': 30}"
         },
         {
           "name": "title_text_style",
@@ -479,23 +472,6 @@
               {
                 "lang": "uk",
                 "text": "твій"
-              }
-            ]
-          },
-          {
-            "name": "lives_label",
-            "translations": [
-              {
-                "lang": "en",
-                "text": "lives"
-              },
-              {
-                "lang": "ru",
-                "text": "жизни"
-              },
-              {
-                "lang": "uk",
-                "text": "життя"
               }
             ]
           },
@@ -890,7 +866,7 @@
       "jsonParams": ""
     },
     "scriptManager": {
-      "scripts": ["test.dart", "test2.dart"],
+      "scripts": ["src/main.dart", "src/game.dart"],
       "jsonParams": ""
     },
     "eventManager": {
@@ -988,7 +964,7 @@
                     {
                       "name": "button_play",
                       "componentType": "Button",
-                      "jsonParams": "{'width': 160, 'height': 80, 'buttonStyle': 'big_rect_button', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'navigation', 'func': 'show', 'content': 'gameplay'}]}]}",
+                      "jsonParams": "{'width': 160, 'height': 80, 'buttonStyle': 'big_rect_button', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'function', 'func': 'game::src/main::startLevel', 'params': {'level': 1}}]}]}",
                       "components": [
                         {
                           "name": "button_play_label",
@@ -1102,12 +1078,12 @@
                      {
                        "name": "author_label",
                        "componentType": "Text",
-                       "jsonParams": "{'text': 'authorName', 'y': 85, 'width': 115, 'height': 40, 'textStyle': 'about_text_style', 'anchor': 'topLeft', 'align': 'centerLeft', 'priority': 2}"
+                       "jsonParams": "{'text': 'authorName', 'y': 85, 'width': 105, 'height': 40, 'textStyle': 'about_text_style', 'anchor': 'topLeft', 'align': 'centerLeft', 'priority': 2}"
                      },
                      {
                        "name": "website_label",
                        "componentType": "Text",
-                       "jsonParams": "{'text': 'website', 'x': 120, 'y': 85, 'width': 210, 'height': 40, 'textStyle': 'about_url_style', 'anchor': 'topLeft', 'align': 'centerLeft', 'priority': 2, 'gestures': [{'type': 'click', 'actions': [{'type':'navigation', 'func': 'url', 'content': 'http://ai11.link'}]}]}"
+                       "jsonParams": "{'text': 'website', 'x': 95, 'y': 85, 'width': 210, 'height': 40, 'textStyle': 'about_url_style', 'anchor': 'topLeft', 'align': 'centerLeft', 'priority': 2, 'gestures': [{'type': 'click', 'actions': [{'type':'navigation', 'func': 'url', 'content': 'http://ai11.link'}]}]}"
                      }
                    ]
                   }
@@ -1201,7 +1177,7 @@
                     {
                       "name": "button_forest_skin",
                       "componentType": "Button",
-                      "jsonParams": "{'x': 5, 'y': 6, 'width': 200, 'height': 200, 'buttonStyle': 'big_frame_button', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'save', 'func': 'saveSettings', 'content': 'default', 'params': {'param': 'currentTheme'}}, {'type':'navigation', 'func': 'nav', 'content': 'back'}]}]}",
+                      "jsonParams": "{'x': 5, 'y': 6, 'width': 200, 'height': 200, 'buttonStyle': 'big_frame_button', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'save', 'func': 'saveSettings', 'content': 'default', 'params': {'param': 'currentTheme'}}, {'type':'changeTheme', 'content': 'default'}, {'type':'navigation', 'func': 'nav', 'content': 'back'}]}]}",
                       "components": [
                         {
                           "name": "image_forest_skin",
@@ -1213,7 +1189,7 @@
                     {
                       "name": "button_space_skin",
                       "componentType": "Button",
-                      "jsonParams": "{'x': 5, 'y': 6, 'width': 200, 'height': 200, 'buttonStyle': 'big_frame_button', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'save', 'func': 'saveSettings', 'content': 'space', 'params': {'param': 'currentTheme'}}, {'type':'navigation', 'func': 'nav', 'content': 'back'}]}]}",
+                      "jsonParams": "{'x': 5, 'y': 6, 'width': 200, 'height': 200, 'buttonStyle': 'big_frame_button', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'save', 'func': 'saveSettings', 'content': 'space', 'params': {'param': 'currentTheme'}}, {'type':'changeTheme', 'content': 'space'}, {'type':'navigation', 'func': 'nav', 'content': 'back'}]}]}",
                       "components": [
                         {
                           "name": "image_space_skin",
@@ -1225,7 +1201,7 @@
                     {
                       "name": "button_paper_skin",
                       "componentType": "Button",
-                      "jsonParams": "{'x': 5, 'y': 6, 'width': 185, 'height': 170, 'buttonStyle': 'big_frame_button', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'save', 'func': 'saveSettings', 'content': 'paper', 'params': {'param': 'currentTheme'}}, {'type':'navigation', 'func': 'nav', 'content': 'back'}]}]}",
+                      "jsonParams": "{'x': 5, 'y': 6, 'width': 185, 'height': 170, 'buttonStyle': 'big_frame_button', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'save', 'func': 'saveSettings', 'content': 'paper', 'params': {'param': 'currentTheme'}}, {'type':'changeTheme', 'content': 'paper'}, {'type':'navigation', 'func': 'nav', 'content': 'back'}]}]}",
                       "components": [
                         {
                           "name": "image_paper_skin",
@@ -1354,7 +1330,7 @@
                 {
                   "name": "button_1_level",
                   "componentType": "Button",
-                  "jsonParams": "{'x': 70, 'y': 100, 'buttonStyle': 'middle_rect_button', 'anchor': 'topLeft', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'navigation', 'func': 'show', 'content': 'gameplay'}]}]}",
+                  "jsonParams": "{'x': 70, 'y': 100, 'buttonStyle': 'middle_rect_button', 'anchor': 'topLeft', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'navigation', 'func': 'nav', 'content': 'back'}, {'type':'function', 'func': 'game::src/main::startLevel', 'params': {'level': 1}}]}]}",
                   "components": [
                     {
                       "name": "button_1_level_label",
@@ -1366,7 +1342,7 @@
                 {
                   "name": "button_2_level",
                   "componentType": "Button",
-                  "jsonParams": "{'x': 70, 'y': 200, 'buttonStyle': 'middle_rect_button', 'anchor': 'topLeft', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'navigation', 'func': 'nav', 'content': ''}]}]}",
+                  "jsonParams": "{'x': 70, 'y': 200, 'buttonStyle': 'middle_rect_button', 'anchor': 'topLeft', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'navigation', 'func': 'nav', 'content': 'back'}, {'type':'function', 'func': 'game::src/main::startLevel', 'params': {'level': 2}}]}]}",
                   "components": [
                     {
                       "name": "button_2_level_label",
@@ -1378,7 +1354,7 @@
                 {
                   "name": "button_3_level",
                   "componentType": "Button",
-                  "jsonParams": "{'x': 70, 'y': 300, 'buttonStyle': 'middle_rect_button', 'anchor': 'topLeft', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'function', 'func': 'game::test::myFunc', 'params': {'count': 3, 'str': 'MY STR'}}]}]}",
+                  "jsonParams": "{'x': 70, 'y': 300, 'buttonStyle': 'middle_rect_button', 'anchor': 'topLeft', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'navigation', 'func': 'nav', 'content': 'back'}, {'type':'function', 'func': 'game::src/main::startLevel', 'params': {'level': 3}}]}]}",
                   "components": [
                     {
                       "name": "button_3_level_label",
@@ -1542,13 +1518,13 @@
           "windowType": "worldWindow",
           "transparent": false,
           "isActive": true,
-          "jsonParams": "",
-          "content": "world_main.game_level",
+          "jsonParams": "{'maintainState': false}",
+          "content": "world_main.game_level_1",
           "components": [],
           "scripts": []
         }
       ],
-      "jsonParams": "{'initialRoute': 'main_menu'}"
+      "jsonParams": "{'initialRoute': 'main_menu', 'exitDialog': 'exit_dialog'}"
     },
     "worlds": [
       {
@@ -1567,7 +1543,7 @@
         "jsonParams": "",
         "fields": [
           {
-            "name": "game_level",
+            "name": "game_level_1",
             "fieldType": "staticField",
             "addresses": {
               "addressType": "cells",
@@ -1580,7 +1556,7 @@
               {
                 "name": "level_layout",
                 "componentType": "AdaptiveLayout",
-                "jsonParams": "{'leftSideSize': 80, 'rightSideSize': 100, 'minCentralSize': 100, 'leftAlign': 0.6, 'rightAlign': 0.3, 'allowIncrease': false, 'leftComponents': ['button_level_back', 'button_level_pause', 'button_level_restart', 'button_level_help', 'button_level_music'], 'rightComponents': ['frame_1', 'frame_2', 'frame_3', 'frame_4', 'frame_5', 'empty_lebel'], 'background': ['game_background_back', 'game_background_front', 'game_back_animation_1', 'game_back_animation_2', 'game_back_animation_3', 'game_back_animation_4', 'game_back_animation_5']}",
+                "jsonParams": "{'leftSideSize': 80, 'rightSideSize': 100, 'minCentralSize': 100, 'leftAlign': 0.6, 'rightAlign': 0.3, 'allowIncrease': false, 'leftComponents': ['button_level_back', 'button_level_pause', 'button_level_restart', 'button_level_music'], 'rightComponents': ['frame_1', 'frame_2', 'frame_3', 'frame_4', 'empty_lebel'], 'background': ['game_background_back', 'game_background_front', 'game_back_animation_1', 'game_back_animation_2', 'game_back_animation_3', 'game_back_animation_4', 'game_back_animation_5']}",
                 "components": [
                   {
                     "name": "game_background_back",
@@ -1704,21 +1680,9 @@
                     ]
                   },
                   {
-                    "name": "button_level_help",
-                    "componentType": "Button",
-                    "jsonParams": "{'x': 0, 'y': 270, 'width': 80, 'height': 80, 'buttonStyle': 'round_button', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'navigation', 'func': 'show', 'content': 'ai_win_game_window'}]}]}",
-                    "components": [
-                      {
-                        "name": "help_image",
-                        "componentType": "Image",
-                        "jsonParams": "{'src': 'help', 'x': 40, 'y': 40,  'width': 50, 'height': 50, 'anchor': 'center', 'priority': 1}"
-                      }
-                    ]
-                  },
-                  {
                     "name": "button_level_music",
                     "componentType": "Music",
-                    "jsonParams": "{'src': 'gameplay_music', 'x': 0, 'y': 360, 'width': 80, 'height': 100, 'skinPlay': 'music_on', 'skinPause': 'music_off', 'autoPlay': true, 'hide': false, 'loop': true}"
+                    "jsonParams": "{'src': 'gameplay_music', 'x': 0, 'y': 270, 'width': 80, 'height': 100, 'skinPlay': 'music_on', 'skinPause': 'music_off', 'autoPlay': true, 'hide': false, 'loop': true}"
                   },
                   {
                     "name": "frame_1",
@@ -1789,31 +1753,14 @@
                     ]
                   },
                   {
-                    "name": "frame_5",
-                    "componentType": "Rect",
-                    "jsonParams": "{'borderColor': '0x00000000', 'innerColor': '0xFFE9B635', 'start':[0, 440], 'size': [100, 100], 'innerRadius': 30, 'outerRadius': 30, 'thickness': 0, 'anchor': 'center'}",
-                    "components": [
-                      {
-                        "name": "text_lives_value",
-                        "componentType": "Text",
-                        "jsonParams": "{'text': '3/3', 'x': 20, 'y': 5, 'width': 60, 'height': 40, 'textStyle': 'forest_text_style'}"
-                      },
-                      {
-                        "name": "text_lives_label",
-                        "componentType": "Text",
-                        "jsonParams": "{'text': 'lives_label', 'x': -5, 'y': 45, 'width': 110, 'height': 50, 'textStyle': 'forest_text_style'}"
-                      }
-                    ]
-                  },
-                  {
                     "name": "empty_lebel",
                     "componentType": "Empty",
-                    "jsonParams": "{'x': 0, 'y': 440,  'width': 100, 'height': 100}"
+                    "jsonParams": "{'x': 0, 'y': 330,  'width': 100, 'height': 100}"
                   }
                 ]
               }
             ],
-            "scripts": []
+            "scripts": ["src/level.dart"]
           }
         ],
         "scripts": []
