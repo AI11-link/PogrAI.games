@@ -22,7 +22,6 @@ void level(int level) {
 }
 
 void timerTick(int count) {
-  print("TIMERTICK " + count.toString());
   final secondsCounter = (count % 3600).toInt();
   final minutes = secondsCounter ~/ 60;
   final seconds = (secondsCounter % 60).toInt();
