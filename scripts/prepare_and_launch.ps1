@@ -25,5 +25,12 @@ New-Item -ItemType Directory -Path $dest -Force | Out-Null
 Copy-Item "$workspace\$UUID\*" -Destination $dest -Recurse -Force
 
 Write-Host "→ Launch: cmd /k $appFile -uuid $UUID | more"
-Start-Process -FilePath "cmd.exe" -ArgumentList "/u /k title PogrAI output && cd $appFolder && $appFile -uuid $UUID | more"
+Start-Process -FilePath "cmd.exe" -ArgumentList @(
+  "/u /k",
+  "mode con:cols=120 lines=200",
+  "&& title PogrAI output",
+  "&& cd $appFolder",
+  "&& $appFile -uuid $UUID",
+  "| more"
+)
 exit 0

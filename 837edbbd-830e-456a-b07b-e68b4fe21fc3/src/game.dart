@@ -1,7 +1,12 @@
 import 'dart:math';
+import 'package:game/ScriptManager.dart';
+
+var scr = getScriptManager();
 
 class TicTacToe {
-  List<String> _board = List.filled(9, ' ');
+  int _level = 1;
+  int _fieldIndex = 0;
+  List<String> _board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
   String _humanSymbol = '0';
   String _computerSymbol = 'X';
   String _currentPlayer = 'human';
@@ -13,12 +18,20 @@ class TicTacToe {
   List<String> get board => _board;
   bool get isGameOver => _gameOver;
 
-  void startGame() {
-    _board = List.filled(9, ' ');
+  void startGame(int level) {
+    _level = level;
+    _fieldIndex = level - 1;
+    _board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
     _gameOver = false;
     _isProcessing = false;
+    print("START LEVEL: $_level");
     Random random = Random();
     bool humanFirst = random.nextBool();
+    if (humanFirst) {
+      print("HUMAN FIRST");
+    } else {
+      print("COMPUTER FIRST");
+    }
     if (humanFirst) {
       _humanSymbol = 'X';
       _computerSymbol = 'O';
@@ -27,7 +40,7 @@ class TicTacToe {
       _humanSymbol = 'O';
       _computerSymbol = 'X';
       _currentPlayer = 'computer';
-      computerMove();
+      _computerMove();
     }
   }
 
@@ -37,17 +50,17 @@ class TicTacToe {
     }
     if (_makeMove(cell)) {
       if (!_gameOver && _currentPlayer == 'computer') {
-        computerMove();
+        _computerMove();
       }
     }
   }
 
-  void computerMove() {
+  Future<void> _computerMove() async {
     if (_currentPlayer != 'computer' || _gameOver) {
       return;
     }
-    lockCells();
-    //Future.delayed(Duration(milliseconds: 500));
+    _lockCells();
+    await Future.delayed(Duration(milliseconds: 1500));
     List<int> emptyCells = [];
     for (int i = 0; i < 9; i++) {
       if (_board[i] == ' ') {
@@ -58,84 +71,88 @@ class TicTacToe {
       int cell = emptyCells[Random().nextInt(emptyCells.length)];
       _makeMove(cell);
     }
-    unlockCells();
+    _unlockCells();
   }
 
   bool _makeMove(int cell) {
-    // if (cell < 0 || cell > 8 || _board[cell] != ' ') {
-    //   return false;
-    // }
-    // String symbol = _currentPlayer == 'human' ? _humanSymbol : _computerSymbol;
-    // _board[cell] = symbol;
-    // if (symbol == 'X') {
-    //   setX(cell);
-    // } else {
-    //   setO(cell);
-    // }
-    // if (_checkWin(symbol)) {
-    //   if (_currentPlayer == 'human') {
-    //     winProcedure();
-    //   } else {
-    //     lossProcedure();
-    //   }
-    //   _gameOver = true;
-    // } else if (_checkDraw()) {
-    //   lossProcedure();
-    //   _gameOver = true;
-    // } else {
-    //   _switchPlayer();
-    // }
+    print("Move $_currentPlayer: $cell");
+    if (cell < 0 || cell > 8 || _board[cell] != ' ') {
+      return false;
+    }
+    String symbol = _currentPlayer == 'human' ? _humanSymbol : _computerSymbol;
+    _board[cell] = symbol;
+    if (symbol == 'X') {
+      _setX(cell);
+    } else {
+      _setO(cell);
+    }
+    if (_checkWin(symbol)) {
+      if (_currentPlayer == 'human') {
+        _winProcedure();
+      } else {
+        _lossProcedure();
+      }
+      _gameOver = true;
+    } else if (_checkDraw()) {
+      _drawProcedure();
+      _gameOver = true;
+    } else {
+      _switchPlayer();
+    }
     return true;
   }
 
   void _switchPlayer() {
-    //_currentPlayer = _currentPlayer == 'human' ? 'computer' : 'human';
+    _currentPlayer = _currentPlayer == 'human' ? 'computer' : 'human';
   }
 
   bool _checkWin(String symbol) {
-    // List<List<int>> winningCombos = [
-    //   [0, 1, 2], [3, 4, 5], [6, 7, 8], // строки
-    //   [0, 3, 6], [1, 4, 7], [2, 5, 8], // столбцы
-    //   [0, 4, 8], [2, 4, 6] // диагонали
-    // ];
-    // for (var combo in winningCombos) {
-    //   if (_board[combo[0]] == symbol &&
-    //       _board[combo[1]] == symbol &&
-    //       _board[combo[2]] == symbol) {
-    //     return true;
-    //   }
-    // }
+    List<List<int>> winningCombos = [
+      [0, 1, 2], [3, 4, 5], [6, 7, 8], // rows
+      [0, 3, 6], [1, 4, 7], [2, 5, 8], // columns
+      [0, 4, 8], [2, 4, 6] // diag
+    ];
+    for (var combo in winningCombos) {
+      if (_board[combo[0]] == symbol &&
+          _board[combo[1]] == symbol &&
+          _board[combo[2]] == symbol) {
+        return true;
+      }
+    }
     return false;
   }
 
   bool _checkDraw() {
-    //return !_board.contains(' ');
-    return true;
+    return !_board.contains(' ');
   }
 
-  void lockCells() {
+  void _lockCells() {
     _isProcessing = true;
   }
 
-  void unlockCells() {
+  void _unlockCells() {
     _isProcessing = false;
   }
 
-  void setX(int cell) {
-    //print('Установлен крестик в ячейке $cell');
+  void _setX(int cell) {
+    scr.setAnimation(
+        "world_main", _fieldIndex, "level_cell_$cell.cell_anim_$cell", "x");
   }
 
-  void setO(int cell) {
-    //print('Установлен нолик в ячейке $cell');
+  void _setO(int cell) {
+    scr.setAnimation(
+        "world_main", _fieldIndex, "level_cell_$cell.cell_anim_$cell", "o");
   }
 
-  void winProcedure() {
+  void _winProcedure() {
+    print("HUMAN WIN");
     // humanScore++;
     // print(
     //     'Человек победил! Счет: Человек $humanScore - Компьютер $computerScore');
   }
 
-  void lossProcedure() {
+  void _lossProcedure() {
+    print("COMPUTER WIN");
     // if (_checkWin(_computerSymbol)) {
     //   computerScore++;
     //   print(
@@ -143,5 +160,9 @@ class TicTacToe {
     // } else {
     //   print('Ничья! Счет: Человек $humanScore - Компьютер $computerScore');
     // }
+  }
+
+  void _drawProcedure() {
+    print("DRAW");
   }
 }
