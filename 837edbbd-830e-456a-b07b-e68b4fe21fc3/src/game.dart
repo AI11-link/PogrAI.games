@@ -14,7 +14,7 @@ class TicTacToe {
   int _level = 1;
   int _fieldIndex = 0;
   List<String> _board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
-  String _humanSymbol = '0';
+  String _humanSymbol = 'O';
   String _computerSymbol = 'X';
   String _currentPlayer = 'human';
   bool _gameOver = false;
