@@ -1,7 +1,9 @@
 import 'dart:math';
 import 'package:game/ScriptManager.dart';
+import 'package:game/SaveManager.dart';
 
 var scr = getScriptManager();
+var sv = getSaveManager();
 
 class TicTacToe {
   int _level = 1;
@@ -25,6 +27,9 @@ class TicTacToe {
     _gameOver = false;
     _isProcessing = false;
     print("START LEVEL: $_level");
+    humanScore = sv.getValue("lvl$_level.u");
+    computerScore = sv.getValue("lvl$_level.c");
+    _showScore();
     Random random = Random();
     bool humanFirst = random.nextBool();
     if (humanFirst) {
@@ -36,10 +41,13 @@ class TicTacToe {
       _humanSymbol = 'X';
       _computerSymbol = 'O';
       _currentPlayer = 'human';
+      scr.setText("world_main", _fieldIndex, "frame_4.text_turn_value", "your");
     } else {
       _humanSymbol = 'O';
       _computerSymbol = 'X';
       _currentPlayer = 'computer';
+      scr.setText(
+          "world_main", _fieldIndex, "frame_4.text_turn_value", "computer");
       _computerMove();
     }
   }
@@ -103,7 +111,14 @@ class TicTacToe {
   }
 
   void _switchPlayer() {
-    _currentPlayer = _currentPlayer == 'human' ? 'computer' : 'human';
+    if (_currentPlayer == 'human') {
+      _currentPlayer = 'computer';
+      scr.setText(
+          "world_main", _fieldIndex, "frame_4.text_turn_value", "computer");
+    } else {
+      _currentPlayer = 'human';
+      scr.setText("world_main", _fieldIndex, "frame_4.text_turn_value", "your");
+    }
   }
 
   bool _checkWin(String symbol) {
@@ -144,8 +159,16 @@ class TicTacToe {
         "world_main", _fieldIndex, "level_cell_$cell.cell_anim_$cell", "o");
   }
 
+  void _showScore() {
+    scr.setText("world_main", _fieldIndex, "frame_2.text_score_value",
+        "$humanScore:$computerScore");
+  }
+
   void _winProcedure() {
     print("HUMAN WIN");
+    humanScore += 1;
+    sv.setValue("lvl$_level.u", humanScore, isSave: true);
+    _showScore();
     // humanScore++;
     // print(
     //     'Человек победил! Счет: Человек $humanScore - Компьютер $computerScore');
@@ -153,6 +176,9 @@ class TicTacToe {
 
   void _lossProcedure() {
     print("COMPUTER WIN");
+    computerScore += 1;
+    sv.setValue("lvl$_level.c", computerScore, isSave: true);
+    _showScore();
     // if (_checkWin(_computerSymbol)) {
     //   computerScore++;
     //   print(

@@ -490,6 +490,23 @@
             ]
           },
           {
+            "name": "computer",
+            "translations": [
+              {
+                "lang": "en",
+                "text": "🖳"
+              },
+              {
+                "lang": "ru",
+                "text": "🖳"
+              },
+              {
+                "lang": "uk",
+                "text": "🖳"
+              }
+            ]
+          },
+          {
             "name": "start_label",
             "translations": [
               {
@@ -872,7 +889,7 @@
     },
     "saveManager": {
       "saveSchemaVersion": 1,
-      "gameJsonUserData": "{ 'score': 0 }",
+      "gameJsonUserData": "{ 'score': 0, 'lvl1.u': 0, 'lvl1.c': 0, 'lvl2.u': 0, 'lvl2.c': 0, 'lvl3.u': 0, 'lvl3.c': 0 }",
       "settingsJsonUserData": "{ 'alwaysFirst': false, 'currentTheme': 'default'}",
       "jsonParams": ""
     },
