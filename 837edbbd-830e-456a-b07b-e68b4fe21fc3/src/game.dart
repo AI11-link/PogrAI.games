@@ -1,9 +1,14 @@
 import 'dart:math';
 import 'package:game/ScriptManager.dart';
 import 'package:game/SaveManager.dart';
+import 'package:game/RouterManager.dart';
+import 'package:game/ResAudioManager.dart';
+import 'package:game/src/common.dart' as com;
 
 var scr = getScriptManager();
 var sv = getSaveManager();
+var rm = getRouterManager();
+var aud = getResAudioManager();
 
 class TicTacToe {
   int _level = 1;
@@ -23,6 +28,13 @@ class TicTacToe {
   void startGame(int level) {
     _level = level;
     _fieldIndex = level - 1;
+    com.setFieldIndex(_fieldIndex);
+    scr.setText("world_main", _fieldIndex, "frame_1.text_level_value",
+        level.toString());
+    resetLevel();
+  }
+
+  void resetLevel() {
     _board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
     _gameOver = false;
     _isProcessing = false;
@@ -48,8 +60,17 @@ class TicTacToe {
       _currentPlayer = 'computer';
       scr.setText(
           "world_main", _fieldIndex, "frame_4.text_turn_value", "computer");
-      _computerMove();
+      _computerMove(false);
     }
+    for (var i = 0; i < _board.length; i++) {
+      scr.setAnimation(
+          "world_main", _fieldIndex, "level_cell_$i.cell_anim_$i", "");
+    }
+
+    scr.stopTimer("levelTimer");
+    scr.createTimer(
+        "levelTimer", 1, "game::src/common::timerTick", {"count": 0});
+    com.timerTick(0);
   }
 
   void humanMove(int cell) {
@@ -58,17 +79,21 @@ class TicTacToe {
     }
     if (_makeMove(cell)) {
       if (!_gameOver && _currentPlayer == 'computer') {
-        _computerMove();
+        _computerMove(true);
       }
     }
   }
 
-  Future<void> _computerMove() async {
+  Future<void> _computerMove(bool isDelayExist) async {
     if (_currentPlayer != 'computer' || _gameOver) {
       return;
     }
     _lockCells();
-    await Future.delayed(Duration(milliseconds: 1500));
+    if (isDelayExist) {
+      await Future.delayed(Duration(milliseconds: 1500));
+    } else {
+      await Future.delayed(Duration(milliseconds: 500));
+    }
     List<int> emptyCells = [];
     for (int i = 0; i < 9; i++) {
       if (_board[i] == ' ') {
@@ -111,6 +136,7 @@ class TicTacToe {
   }
 
   void _switchPlayer() {
+    aud.playSound("click", {});
     if (_currentPlayer == 'human') {
       _currentPlayer = 'computer';
       scr.setText(
@@ -166,29 +192,34 @@ class TicTacToe {
 
   void _winProcedure() {
     print("HUMAN WIN");
+    aud.stopSound();
+    aud.playSound("win", {});
     humanScore += 1;
     sv.setValue("lvl$_level.u", humanScore, isSave: true);
     _showScore();
-    // humanScore++;
-    // print(
-    //     'Человек победил! Счет: Человек $humanScore - Компьютер $computerScore');
+    scr.stopTimer("levelTimer");
+    rm.showWindow("win_window", {});
+    print("WIN");
   }
 
   void _lossProcedure() {
     print("COMPUTER WIN");
+    aud.stopSound();
+    aud.playSound("lose", {});
     computerScore += 1;
     sv.setValue("lvl$_level.c", computerScore, isSave: true);
     _showScore();
-    // if (_checkWin(_computerSymbol)) {
-    //   computerScore++;
-    //   print(
-    //       'Компьютер победил! Счет: Человек $humanScore - Компьютер $computerScore');
-    // } else {
-    //   print('Ничья! Счет: Человек $humanScore - Компьютер $computerScore');
-    // }
+    scr.stopTimer("levelTimer");
+    rm.showWindow("lose_window", {});
+    print("LOSE");
   }
 
-  void _drawProcedure() {
+  Future<void> _drawProcedure() async {
     print("DRAW");
+    aud.stopSound();
+    aud.playSound("draw", {});
+    scr.stopTimer("levelTimer");
+    await Future.delayed(Duration(milliseconds: 1000));
+    resetLevel();
   }
 }
