@@ -9,6 +9,11 @@ var scr = getScriptManager();
 var sv = getSaveManager();
 var rm = getRouterManager();
 var aud = getResAudioManager();
+List<List<int>> winningCombos = [
+  [0, 1, 2], [3, 4, 5], [6, 7, 8], // rows
+  [0, 3, 6], [1, 4, 7], [2, 5, 8], // columns
+  [0, 4, 8], [2, 4, 6] // diag
+];
 
 class TicTacToe {
   int _level = 1;
@@ -94,15 +99,47 @@ class TicTacToe {
     } else {
       await Future.delayed(Duration(milliseconds: 500));
     }
-    List<int> emptyCells = [];
-    for (int i = 0; i < 9; i++) {
-      if (_board[i] == ' ') {
-        emptyCells.add(i);
-      }
+
+    // 1. Check if the computer can win
+    int winMove = _getWinningMove(_computerSymbol);
+    if (winMove != -1) {
+      _makeMove(winMove);
+      _unlockCells();
+      return;
     }
-    if (emptyCells.isNotEmpty) {
-      int cell = emptyCells[Random().nextInt(emptyCells.length)];
-      _makeMove(cell);
+
+    // 2. Check if a opponent's move needs to be blocked
+    int blockMove = _getWinningMove(_humanSymbol);
+    if (blockMove != -1) {
+      _makeMove(blockMove);
+      _unlockCells();
+      return;
+    }
+
+    // 3. Make a strategic move
+    if (_board[4] == ' ') {
+      _makeMove(4); // Take the center
+    } else {
+      // Take a random corner
+      List<int> corners = [0, 2, 6, 8];
+      corners.shuffle();
+      for (var corner in corners) {
+        if (_board[corner] == ' ') {
+          _makeMove(corner);
+          _unlockCells();
+          return;
+        }
+      }
+      // Take a random side
+      List<int> sides = [1, 3, 5, 7];
+      sides.shuffle();
+      for (var side in sides) {
+        if (_board[side] == ' ') {
+          _makeMove(side);
+          _unlockCells();
+          return;
+        }
+      }
     }
     _unlockCells();
   }
@@ -147,12 +184,25 @@ class TicTacToe {
     }
   }
 
+  int _getWinningMove(String symbol) {
+    for (var combo in winningCombos) {
+      int count = 0;
+      int emptyIndex = -1;
+      for (var i in combo) {
+        if (_board[i] == symbol) {
+          count++;
+        } else if (_board[i] == ' ') {
+          emptyIndex = i;
+        }
+      }
+      if (count == 2 && emptyIndex != -1) {
+        return emptyIndex;
+      }
+    }
+    return -1;
+  }
+
   bool _checkWin(String symbol) {
-    List<List<int>> winningCombos = [
-      [0, 1, 2], [3, 4, 5], [6, 7, 8], // rows
-      [0, 3, 6], [1, 4, 7], [2, 5, 8], // columns
-      [0, 4, 8], [2, 4, 6] // diag
-    ];
     for (var combo in winningCombos) {
       if (_board[combo[0]] == symbol &&
           _board[combo[1]] == symbol &&
