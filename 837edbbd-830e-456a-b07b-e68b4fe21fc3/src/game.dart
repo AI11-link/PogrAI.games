@@ -116,7 +116,7 @@ class TicTacToe {
       return;
     }
 
-    // 2. Check if a opponent's move needs to be blocked
+    // 2. Check if an opponent's move needs to be blocked
     int blockMove = _getWinningMove(_humanSymbol);
     if (blockMove != -1) {
       _makeMove(blockMove);
@@ -124,31 +124,66 @@ class TicTacToe {
       return;
     }
 
-    // 3. Make a strategic move
-    if (_board[4] == ' ') {
-      _makeMove(4); // Take the center
-    } else {
-      // Take a random corner
-      List<int> corners = [0, 2, 6, 8];
-      corners.shuffle();
-      for (var corner in corners) {
-        if (_board[corner] == ' ') {
-          _makeMove(corner);
-          _unlockCells();
-          return;
+    // Count filled cells to detect opening moves
+    int movesCount = 0;
+    for (var cell in _board) {
+      if (cell != ' ') {
+        movesCount++;
+      }
+    }
+    List<int> corners = [0, 2, 6, 8];
+    List<int> sides = [1, 3, 5, 7];
+
+    // 3. Strategic opening: counter corner-first by taking a side
+    if (movesCount == 1) {
+      // Human has played exactly one move; find its index manually
+      int humanMove = -1;
+      for (int i = 0; i < _board.length; i++) {
+        if (_board[i] == _humanSymbol) {
+          humanMove = i;
+          break;
         }
       }
-      // Take a random side
-      List<int> sides = [1, 3, 5, 7];
-      sides.shuffle();
-      for (var side in sides) {
-        if (_board[side] == ' ') {
-          _makeMove(side);
-          _unlockCells();
-          return;
+      if (humanMove != -1 && corners.contains(humanMove)) {
+        // Human started in corner -> take a random side to avoid fork
+        sides.shuffle();
+        for (var side in sides) {
+          if (_board[side] == ' ') {
+            _makeMove(side);
+            _unlockCells();
+            return;
+          }
         }
       }
     }
+
+    // 4. Otherwise, take the center if available
+    if (_board[4] == ' ') {
+      _makeMove(4);
+      _unlockCells();
+      return;
+    }
+
+    // 5. Fallback: take a random corner
+    corners.shuffle();
+    for (var corner in corners) {
+      if (_board[corner] == ' ') {
+        _makeMove(corner);
+        _unlockCells();
+        return;
+      }
+    }
+
+    // 6. Last resort: take a random side
+    sides.shuffle();
+    for (var side in sides) {
+      if (_board[side] == ' ') {
+        _makeMove(side);
+        _unlockCells();
+        return;
+      }
+    }
+
     _unlockCells();
   }
 
