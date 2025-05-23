@@ -1,9 +1,11 @@
 import 'package:game/RouterManager.dart';
 import 'package:game/ScriptManager.dart';
+import 'package:game/ResAudioManager.dart';
 import 'package:game/src/game.dart';
 
 RouterManager rt = getRouterManager();
 ScriptManager scr = getScriptManager();
+ResAudioManager aud = getResAudioManager();
 TicTacToe? _game = null;
 
 void startLevel(int level) {
@@ -31,5 +33,11 @@ void resetLevel() {
 void back(String closedWindow) {
   if (closedWindow == "win_window" || closedWindow == "lose_window") {
     resetLevel();
+  } else if (closedWindow == "gameplay") {
+    if (aud.getIsPlayMusic({})) {
+      aud.playMusic("main_menu_music", {});
+    } else {
+      aud.stopMusic({});
+    }
   }
 }
