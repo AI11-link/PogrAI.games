@@ -16,6 +16,7 @@ void startLevel(int level) {
     _game = TicTacToe();
     _game.startGame(level);
   }
+  resumeGame();
 }
 
 void humanMove(int cell) {
@@ -30,14 +31,33 @@ void resetLevel() {
   }
 }
 
+void pauseGame() {
+  if (_game != null) {
+    _game.pauseGame();
+  }
+}
+
+void resumeGame() {
+  if (_game != null) {
+    _game.resumeGame();
+  }
+}
+
 void back(String closedWindow) {
   if (closedWindow == "win_window" || closedWindow == "lose_window") {
     resetLevel();
   } else if (closedWindow == "gameplay") {
+    if (_game != null) {
+      _game.pauseGame();
+    }
     if (aud.getIsPlayMusic({})) {
       aud.playMusic("main_menu_music", {});
     } else {
       aud.stopMusic({});
+    }
+  } else if (closedWindow == "pause_game_window") {
+    if (_game != null) {
+      _game.resumeGame();
     }
   }
 }

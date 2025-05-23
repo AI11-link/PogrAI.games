@@ -43,17 +43,17 @@ class TicTacToe {
     _board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
     _gameOver = false;
     _isProcessing = false;
-    print("START LEVEL: $_level");
+    //print("START LEVEL: $_level");
     humanScore = sv.getValue("lvl$_level.u");
     computerScore = sv.getValue("lvl$_level.c");
     _showScore();
     Random random = Random();
     bool humanFirst = random.nextBool();
-    if (humanFirst) {
-      print("HUMAN FIRST");
-    } else {
-      print("COMPUTER FIRST");
-    }
+    // if (humanFirst) {
+    //   print("HUMAN FIRST");
+    // } else {
+    //   print("COMPUTER FIRST");
+    // }
     if (humanFirst) {
       _humanSymbol = 'X';
       _computerSymbol = 'O';
@@ -76,6 +76,14 @@ class TicTacToe {
     scr.createTimer(
         "levelTimer", 1, "game::src/common::timerTick", {"count": 0});
     com.timerTick(0);
+  }
+
+  void pauseGame() {
+    scr.pauseTimer("levelTimer");
+  }
+
+  void resumeGame() {
+    scr.resumeTimer("levelTimer");
   }
 
   void humanMove(int cell) {
@@ -145,7 +153,7 @@ class TicTacToe {
   }
 
   bool _makeMove(int cell) {
-    print("Move $_currentPlayer: $cell");
+    // print("Move $_currentPlayer: $cell");
     if (cell < 0 || cell > 8 || _board[cell] != ' ') {
       return false;
     }
@@ -241,7 +249,7 @@ class TicTacToe {
   }
 
   void _winProcedure() {
-    print("HUMAN WIN");
+    // print("HUMAN WIN");
     aud.stopSound();
     aud.playSound("win", {});
     humanScore += 1;
@@ -249,11 +257,10 @@ class TicTacToe {
     _showScore();
     scr.stopTimer("levelTimer");
     rm.showWindow("win_window", {});
-    print("WIN");
   }
 
   void _lossProcedure() {
-    print("COMPUTER WIN");
+    // print("COMPUTER WIN");
     aud.stopSound();
     aud.playSound("lose", {});
     computerScore += 1;
@@ -261,11 +268,10 @@ class TicTacToe {
     _showScore();
     scr.stopTimer("levelTimer");
     rm.showWindow("lose_window", {});
-    print("LOSE");
   }
 
   Future<void> _drawProcedure() async {
-    print("DRAW");
+    // print("DRAW");
     aud.stopSound();
     aud.playSound("draw", {});
     scr.stopTimer("levelTimer");
