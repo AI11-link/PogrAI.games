@@ -14,6 +14,9 @@ void startLevel(int level) {
   if (_game == null) {
     _game = TicTacToe();
     _game.startGame(level);
+  } else if (_game.getLevel() != level) {
+    _game = TicTacToe();
+    _game.startGame(level);
   }
   resumeGame();
 }

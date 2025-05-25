@@ -70,6 +70,10 @@ class TicTacToe {
     _winningCombos.add(antiDiag);
   }
 
+  int getLevel() {
+    return _level;
+  }
+
   void resetLevel() {
     _board = <String>[];
     for (var i = 0; i < _N * _N; i++) {
