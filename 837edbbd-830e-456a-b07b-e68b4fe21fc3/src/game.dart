@@ -200,15 +200,11 @@ class TicTacToe {
       _setO(cell);
     }
     if (_checkWin(symbol)) {
-      if (_currentPlayer == 'human') {
-        _winProcedure();
-      } else {
-        _lossProcedure();
-      }
       _gameOver = true;
+      _handleEnd(_currentPlayer == 'human');
     } else if (_checkDraw()) {
-      _drawProcedure();
       _gameOver = true;
+      _handleEnd(null); // draw
     } else {
       _switchPlayer();
     }
@@ -283,34 +279,31 @@ class TicTacToe {
         "$humanScore:$computerScore");
   }
 
-  void _winProcedure() {
-    // print("HUMAN WIN");
+  Future<void> _handleEnd(bool? humanWon) async {
     aud.stopSound();
-    aud.playSound("win", {});
-    humanScore += 1;
-    sv.setValue("lvl$_level.u", humanScore, isSave: true);
+    if (humanWon == true) {
+      // print("HUMAN WIN");
+      aud.playSound("win", {});
+      humanScore += 1;
+      sv.setValue("lvl$_level.u", humanScore, isSave: true);
+    } else if (humanWon == false) {
+      // print("COMPUTER WIN");
+      aud.playSound("lose", {});
+      computerScore += 1;
+      sv.setValue("lvl$_level.c", computerScore, isSave: true);
+    } else {
+      // print("DRAW");
+      aud.playSound("draw", {});
+    }
     _showScore();
     scr.stopTimer("levelTimer");
-    rm.showWindow("win_window", {});
-  }
-
-  void _lossProcedure() {
-    // print("COMPUTER WIN");
-    aud.stopSound();
-    aud.playSound("lose", {});
-    computerScore += 1;
-    sv.setValue("lvl$_level.c", computerScore, isSave: true);
-    _showScore();
-    scr.stopTimer("levelTimer");
-    rm.showWindow("lose_window", {});
-  }
-
-  Future<void> _drawProcedure() async {
-    // print("DRAW");
-    aud.stopSound();
-    aud.playSound("draw", {});
-    scr.stopTimer("levelTimer");
-    await Future.delayed(Duration(milliseconds: 1000));
-    resetLevel();
+    await Future.delayed(Duration(milliseconds: 2000));
+    if (humanWon == true) {
+      rm.showWindow("win_window", {});
+    } else if (humanWon == false) {
+      rm.showWindow("lose_window", {});
+    } else {
+      resetLevel();
+    }
   }
 }
