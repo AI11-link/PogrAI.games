@@ -9,8 +9,7 @@ ResAudioManager aud = getResAudioManager();
 TicTacToe? _game = null;
 
 void startLevel(int level) {
-  // TODO implement showing levels 2 and 3
-  rt.showWindow("gameplay", {'content': 'world_main.game_level_1'});
+  rt.showWindow("gameplay", {'content': 'world_main.game_level_$level'});
 
   if (_game == null) {
     _game = TicTacToe();

@@ -9,16 +9,12 @@ var scr = getScriptManager();
 var sv = getSaveManager();
 var rm = getRouterManager();
 var aud = getResAudioManager();
-List<List<int>> winningCombos = [
-  [0, 1, 2], [3, 4, 5], [6, 7, 8], // rows
-  [0, 3, 6], [1, 4, 7], [2, 5, 8], // columns
-  [0, 4, 8], [2, 4, 6] // diag
-];
 
 class TicTacToe {
   int _level = 1;
   int _fieldIndex = 0;
-  List<String> _board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
+  int _N = 3;
+  List<String> _board = <String>[];
   String _humanSymbol = 'O';
   String _computerSymbol = 'X';
   String _currentPlayer = 'human';
@@ -26,6 +22,7 @@ class TicTacToe {
   bool _isProcessing = false;
   int humanScore = 0;
   int computerScore = 0;
+  List<List<int>> _winningCombos = [];
 
   List<String> get board => _board;
   bool get isGameOver => _gameOver;
@@ -33,14 +30,51 @@ class TicTacToe {
   void startGame(int level) {
     _level = level;
     _fieldIndex = level - 1;
+    _N = 3 + 2 * (level - 1);
     com.setFieldIndex(_fieldIndex);
     scr.setText("world_main", _fieldIndex, "frame_1.text_level_value",
         level.toString());
+    _generateWinningCombos();
     resetLevel();
   }
 
+  void _generateWinningCombos() {
+    _winningCombos.clear();
+    // Rows
+    for (int i = 0; i < _N; i++) {
+      List<int> row = [];
+      for (int j = 0; j < _N; j++) {
+        row.add(i * _N + j);
+      }
+      _winningCombos.add(row);
+    }
+    // Columns
+    for (int j = 0; j < _N; j++) {
+      List<int> col = [];
+      for (int i = 0; i < _N; i++) {
+        col.add(i * _N + j);
+      }
+      _winningCombos.add(col);
+    }
+    // Main diagonal
+    List<int> mainDiag = [];
+    for (int i = 0; i < _N; i++) {
+      mainDiag.add(i * _N + i);
+    }
+    _winningCombos.add(mainDiag);
+    // Secondary diagonal
+    List<int> antiDiag = [];
+    for (int i = 0; i < _N; i++) {
+      antiDiag.add(i * _N + (_N - 1 - i));
+    }
+    _winningCombos.add(antiDiag);
+  }
+
   void resetLevel() {
-    _board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
+    _board = <String>[];
+    for (var i = 0; i < _N * _N; i++) {
+      _board.add(" ");
+    }
     _gameOver = false;
     _isProcessing = false;
     //print("START LEVEL: $_level");
@@ -67,7 +101,7 @@ class TicTacToe {
           "world_main", _fieldIndex, "frame_4.text_turn_value", "computer");
       _computerMove(false);
     }
-    for (var i = 0; i < _board.length; i++) {
+    for (var i = 0; i < _N * _N; i++) {
       scr.setAnimation(
           "world_main", _fieldIndex, "level_cell_$i.cell_anim_$i", "");
     }
@@ -124,47 +158,16 @@ class TicTacToe {
       return;
     }
 
-    // Count filled cells to detect opening moves
-    int movesCount = 0;
-    for (var cell in _board) {
-      if (cell != ' ') {
-        movesCount++;
-      }
-    }
-    List<int> corners = [0, 2, 6, 8];
-    List<int> sides = [1, 3, 5, 7];
-
-    // 3. Strategic opening: counter corner-first by taking a side
-    if (movesCount == 1) {
-      // Human has played exactly one move; find its index manually
-      int humanMove = -1;
-      for (int i = 0; i < _board.length; i++) {
-        if (_board[i] == _humanSymbol) {
-          humanMove = i;
-          break;
-        }
-      }
-      if (humanMove != -1 && corners.contains(humanMove)) {
-        // Human started in corner -> take a random side to avoid fork
-        sides.shuffle();
-        for (var side in sides) {
-          if (_board[side] == ' ') {
-            _makeMove(side);
-            _unlockCells();
-            return;
-          }
-        }
-      }
-    }
-
-    // 4. Otherwise, take the center if available
-    if (_board[4] == ' ') {
-      _makeMove(4);
+    // Take the center if available
+    int center = (_N ~/ 2) * _N + (_N ~/ 2);
+    if (_board[center] == ' ') {
+      _makeMove(center);
       _unlockCells();
       return;
     }
 
-    // 5. Fallback: take a random corner
+    // Take a random angle
+    List<int> corners = [0, _N - 1, (_N - 1) * _N, _N * _N - 1];
     corners.shuffle();
     for (var corner in corners) {
       if (_board[corner] == ' ') {
@@ -174,14 +177,18 @@ class TicTacToe {
       }
     }
 
-    // 6. Last resort: take a random side
-    sides.shuffle();
-    for (var side in sides) {
-      if (_board[side] == ' ') {
-        _makeMove(side);
-        _unlockCells();
-        return;
+    // Take a random available cell
+    List<int> available = [];
+    for (int i = 0; i < _N * _N; i++) {
+      if (_board[i] == ' ') {
+        available.add(i);
       }
+    }
+    if (available.isNotEmpty) {
+      available.shuffle();
+      _makeMove(available.first);
+      _unlockCells();
+      return;
     }
 
     _unlockCells();
@@ -189,7 +196,7 @@ class TicTacToe {
 
   bool _makeMove(int cell) {
     // print("Move $_currentPlayer: $cell");
-    if (cell < 0 || cell > 8 || _board[cell] != ' ') {
+    if (cell < 0 || cell >= _N * _N || _board[cell] != ' ') {
       return false;
     }
     String symbol = _currentPlayer == 'human' ? _humanSymbol : _computerSymbol;
@@ -224,17 +231,17 @@ class TicTacToe {
   }
 
   int _getWinningMove(String symbol) {
-    for (var combo in winningCombos) {
+    for (var combo in _winningCombos) {
       int count = 0;
       int emptyIndex = -1;
-      for (var i in combo) {
+      for (int i in combo) {
         if (_board[i] == symbol) {
-          count++;
+          count = count + 1;
         } else if (_board[i] == ' ') {
           emptyIndex = i;
         }
       }
-      if (count == 2 && emptyIndex != -1) {
+      if (count == _N - 1 && emptyIndex != -1) {
         return emptyIndex;
       }
     }
@@ -242,10 +249,15 @@ class TicTacToe {
   }
 
   bool _checkWin(String symbol) {
-    for (var combo in winningCombos) {
-      if (_board[combo[0]] == symbol &&
-          _board[combo[1]] == symbol &&
-          _board[combo[2]] == symbol) {
+    for (var combo in _winningCombos) {
+      bool win = true;
+      for (var pos in combo) {
+        if (_board[pos] != symbol) {
+          win = false;
+          break;
+        }
+      }
+      if (win) {
         return true;
       }
     }
