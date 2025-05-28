@@ -110,18 +110,18 @@ class TicTacToe {
           "world_main", _fieldIndex, "level_cell_$i.cell_anim_$i", "");
     }
 
-    scr.stopTimer("levelTimer");
+    scr.stopTimer("timerLevel$_level");
     scr.createTimer(
-        "levelTimer", 1, "game::src/common::timerTick", {"count": 0});
+        "timerLevel$_level", 1, "game::src/common::timerTick", {"count": 0});
     com.timerTick(0);
   }
 
   void pauseGame() {
-    scr.pauseTimer("levelTimer");
+    scr.pauseTimer("timerLevel$_level");
   }
 
   void resumeGame() {
-    scr.resumeTimer("levelTimer");
+    scr.resumeTimer("timerLevel$_level");
   }
 
   void humanMove(int cell) {
@@ -312,7 +312,7 @@ class TicTacToe {
       aud.playSound("draw", {});
     }
     _showScore();
-    scr.stopTimer("levelTimer");
+    scr.stopTimer("timerLevel$_level");
     await Future.delayed(Duration(milliseconds: 2000));
     if (humanWon == true) {
       rm.showWindow("win_window", {});
