@@ -2192,6 +2192,757 @@
               }
             ],
             "scripts": []
+          },
+          {
+            "name": "game_level_3",
+            "fieldType": "staticField",
+            "addresses": {
+              "addressType": "cells",
+              "gridCellType": "square",
+              "focusAddress": "",
+              "grid": []
+            },
+            "jsonParams": "",
+            "components": [
+              {
+                "name": "level_layout",
+                "componentType": "AdaptiveLayout",
+                "jsonParams": "{'leftSideSize': 80, 'rightSideSize': 100, 'minCentralSize': 100, 'leftAlign': 0.2, 'rightAlign': 0.2, 'allowIncrease': false, 'leftComponents': ['button_level_back', 'button_level_pause', 'button_level_music'], 'rightComponents': ['frame_1', 'frame_2', 'frame_3', 'frame_4', 'empty_lebel'], 'background': ['game_background_back', 'game_background_front', 'game_back_animation_1', 'game_back_animation_2', 'game_back_animation_3', 'game_back_animation_4', 'game_back_animation_5']}",
+                "components": [
+                  {
+                    "name": "game_background_back",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_background', 'width': 3000, 'height': 2000}"
+                  },
+                  {
+                    "name": "game_back_animation_1",
+                    "componentType": "Animation",
+                    "jsonParams": "{'src': 'clouds', 'x': 1500, 'y': 670, 'width': 750, 'height': 350}"
+                  },
+                  {
+                    "name": "game_background_front",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_background_forest_front', 'width': 3000, 'height': 2000}"
+                  },
+                  {
+                    "name": "game_back_animation_2",
+                    "componentType": "Animation",
+                    "jsonParams": "{'src': 'butterfly', 'x': 1950, 'y': 1300, 'width': 100, 'height': 100}"
+                  },
+                  {
+                    "name": "game_back_animation_3",
+                    "componentType": "Animation",
+                    "jsonParams": "{'src': 'woodpecker', 'x': 2320, 'y': 700, 'width': 800, 'height': 600}"
+                  },
+                  {
+                    "name": "game_back_animation_4",
+                    "componentType": "Animation",
+                    "jsonParams": "{'src': 'rabbit', 'x': 1050, 'y': 1350, 'width': 200, 'height': 200}"
+                  },
+                  {
+                    "name": "game_back_animation_5",
+                    "componentType": "Animation",
+                    "jsonParams": "{'src': 'flower', 'x': 740, 'y': 1500, 'width': 270, 'height': 580}"
+                  },
+                  {
+                    "name": "gameplay_size",
+                    "componentType": "Empty",
+                    "jsonParams": "{'x': -114, 'y': -114, 'width': 480, 'height': 480}"
+                  },
+                  {
+                    "name": "level_cell_0",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 0, 'y': 0, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 0.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 0}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_0",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_1",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 126, 'y': 0, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 90.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 1}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_1",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_2",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 252, 'y': 0, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 180.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 2}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_2",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_3",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 378, 'y': 0, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 270.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 3}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_3",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_4",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 504, 'y': 0, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 0.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 4}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_4",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_5",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 630, 'y': 0, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 90.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 5}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_5",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_6",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 756, 'y': 0, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 180.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 6}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_6",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_7",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 0, 'y': 126, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 270.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 7}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_7",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_8",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 126, 'y': 126, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 0.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 8}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_8",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_9",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 252, 'y': 126, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 90.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 9}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_9",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_10",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 378, 'y': 126, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 180.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 10}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_10",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_11",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 504, 'y': 126, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 270.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 11}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_11",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_12",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 630, 'y': 126, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 0.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 12}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_12",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_13",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 756, 'y': 126, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 90.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 13}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_13",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_14",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 0, 'y': 252, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 180.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 14}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_14",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_15",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 126, 'y': 252, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 270.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 15}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_15",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_16",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 252, 'y': 252, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 0.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 16}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_16",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_17",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 378, 'y': 252, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 90.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 17}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_17",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_18",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 504, 'y': 252, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 180.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 18}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_18",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_19",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 630, 'y': 252, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 270.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 19}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_19",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_20",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 756, 'y': 252, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 0.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 20}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_20",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_21",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 0, 'y': 378, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 90.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 21}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_21",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_22",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 126, 'y': 378, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 180.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 22}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_22",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_23",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 252, 'y': 378, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 270.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 23}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_23",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_24",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 378, 'y': 378, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 0.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 24}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_24",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_25",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 504, 'y': 378, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 90.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 25}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_25",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_26",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 630, 'y': 378, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 180.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 26}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_26",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_27",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 756, 'y': 378, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 270.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 27}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_27",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_28",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 0, 'y': 504, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 0.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 28}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_28",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_29",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 126, 'y': 504, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 90.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 29}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_29",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_30",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 252, 'y': 504, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 180.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 30}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_30",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_31",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 378, 'y': 504, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 270.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 31}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_31",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_32",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 504, 'y': 504, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 0.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 32}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_32",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_33",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 630, 'y': 504, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 90.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 33}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_33",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_34",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 756, 'y': 504, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 180.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 34}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_34",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_35",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 0, 'y': 630, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 270.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 35}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_35",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_36",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 126, 'y': 630, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 0.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 36}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_36",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_37",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 252, 'y': 630, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 90.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 37}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_37",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_38",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 378, 'y': 630, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 180.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 38}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_38",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_39",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 504, 'y': 630, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 270.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 39}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_39",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_40",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 630, 'y': 630, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 0.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 40}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_40",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_41",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 756, 'y': 630, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 90.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 41}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_41",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_42",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 0, 'y': 756, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 180.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 42}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_42",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_43",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 126, 'y': 756, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 270.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 43}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_43",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_44",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 252, 'y': 756, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 0.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 44}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_44",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_45",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 378, 'y': 756, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 90.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 45}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_45",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_46",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 504, 'y': 756, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 180.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 46}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_46",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_47",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 630, 'y': 756, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 270.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 47}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_47",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "level_cell_48",
+                    "componentType": "Image",
+                    "jsonParams": "{'src': 'level_cell', 'x': 756, 'y': 756, 'width': 120, 'height': 120, 'anchor': 'center', 'angle': 0.0, 'gestures': [{'type': 'click', 'actions': [{'type':'function', 'func': 'game::src/main::humanMove', 'params': {'cell': 48}}]}]}",
+                    "components": [
+                      {
+                        "name": "cell_anim_48",
+                        "componentType": "Animation",
+                        "jsonParams": "{'src': '', 'x': 60, 'y': 60, 'width': 70, 'height': 70, 'anchor': 'topLeft'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "button_level_back",
+                    "componentType": "Button",
+                    "jsonParams": "{'x': 0, 'y': 0, 'width': 80, 'height': 80, 'buttonStyle': 'round_button', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'navigation', 'func': 'nav', 'content': 'back'}, {'type':'function', 'func': 'game::src/main::pauseGame'}, {'type':'audio', 'func': 'playMusic', 'content': 'main_menu_music'}]}]}",
+                    "components": [
+                      {
+                        "name": "back_image",
+                        "componentType": "Image",
+                        "jsonParams": "{'src': 'back', 'x': 40, 'y': 40, 'width': 50, 'height': 50, 'anchor': 'center', 'priority': 1}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "button_level_pause",
+                    "componentType": "Button",
+                    "jsonParams": "{'x': 0, 'y': 90, 'width': 80, 'height': 80, 'buttonStyle': 'round_button', 'gestures': [{'type': 'click', 'actions': [{'type':'audio', 'func': 'playSound', 'content': 'button_click'}, {'type':'function', 'func': 'game::src/main::pauseGame'}, {'type':'navigation', 'func': 'show', 'content': 'pause_game_window'}]}]}",
+                    "components": [
+                      {
+                        "name": "pause_image",
+                        "componentType": "Image",
+                        "jsonParams": "{'src': 'pause', 'x': 40, 'y': 40, 'width': 40, 'height': 40, 'anchor': 'center', 'priority': 1}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "button_level_music",
+                    "componentType": "Music",
+                    "jsonParams": "{'src': 'gameplay_music', 'x': 0, 'y': 180, 'width': 80, 'height': 100, 'skinPlay': 'music_on', 'skinPause': 'music_off', 'autoPlay': true, 'hide': false, 'loop': true}"
+                  },
+                  {
+                    "name": "frame_1",
+                    "componentType": "Rect",
+                    "jsonParams": "{'borderColor': '0x00000000', 'innerColor': '0xFFE9B635', 'start':[0, 0], 'size': [100, 100], 'innerRadius': 30, 'outerRadius': 30, 'thickness': 0, 'anchor': 'topLeft'}",
+                    "components": [
+                      {
+                        "name": "text_level_value",
+                        "componentType": "Text",
+                        "jsonParams": "{'text': '3', 'x': 20, 'y': 5, 'width': 60, 'height': 40, 'textStyle': 'forest_text_style'}"
+                      },
+                      {
+                        "name": "text_level_label",
+                        "componentType": "Text",
+                        "jsonParams": "{'text': 'level_label', 'x': -5, 'y': 45, 'width': 110, 'height': 50, 'textStyle': 'forest_text_style'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "frame_2",
+                    "componentType": "Rect",
+                    "jsonParams": "{'borderColor': '0x00000000', 'innerColor': '0xFFE9B635', 'start':[0, 110], 'size': [100, 100], 'innerRadius': 30, 'outerRadius': 30, 'thickness': 0, 'anchor': 'center'}",
+                    "components": [
+                      {
+                        "name": "text_score_value",
+                        "componentType": "Text",
+                        "jsonParams": "{'text': '0:0', 'x': 20, 'y': 5, 'width': 60, 'height': 40, 'textStyle': 'forest_text_style'}"
+                      },
+                      {
+                        "name": "text_score_label",
+                        "componentType": "Text",
+                        "jsonParams": "{'text': 'score_label', 'x': -5, 'y': 45, 'width': 110, 'height': 50, 'textStyle': 'forest_text_style'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "frame_3",
+                    "componentType": "Rect",
+                    "jsonParams": "{'borderColor': '0x00000000', 'innerColor': '0xFFE9B635', 'start':[0, 220], 'size': [100, 100], 'innerRadius': 30, 'outerRadius': 30, 'thickness': 0, 'anchor': 'center'}",
+                    "components": [
+                      {
+                        "name": "text_time_value",
+                        "componentType": "Text",
+                        "jsonParams": "{'text': '00:01', 'x': 10, 'y': 5, 'width': 80, 'height': 40, 'textStyle': 'forest_text_style'}"
+                      },
+                      {
+                        "name": "text_time_label",
+                        "componentType": "Text",
+                        "jsonParams": "{'text': 'time_label', 'x': -5, 'y': 45, 'width': 110, 'height': 50, 'textStyle': 'forest_text_style'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "frame_4",
+                    "componentType": "Rect",
+                    "jsonParams": "{'borderColor': '0x00000000', 'innerColor': '0xFFE9B635', 'start':[0, 330], 'size': [100, 100], 'innerRadius': 30, 'outerRadius': 30, 'thickness': 0, 'anchor': 'center'}",
+                    "components": [
+                      {
+                        "name": "text_turn_value",
+                        "componentType": "Text",
+                        "jsonParams": "{'text': 'your', 'x': 10, 'y': 5, 'width': 80, 'height': 40, 'textStyle': 'forest_text_style'}"
+                      },
+                      {
+                        "name": "text_turn_label",
+                        "componentType": "Text",
+                        "jsonParams": "{'text': 'turn_label', 'x': -5, 'y': 45, 'width': 110, 'height': 50, 'textStyle': 'forest_text_style'}"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "empty_lebel",
+                    "componentType": "Empty",
+                    "jsonParams": "{'x': 0, 'y': 330, 'width': 100, 'height': 100}"
+                  }
+                ]
+              }
+            ],
+            "scripts": []
           }
         ],
         "scripts": []
