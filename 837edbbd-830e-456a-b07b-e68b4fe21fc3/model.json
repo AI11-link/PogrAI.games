@@ -1784,7 +1784,7 @@
                   {
                     "name": "gameplay_size",
                     "componentType": "Empty",
-                    "jsonParams": "{'x': -114, 'y': -114,  'width': 480, 'height': 480}"
+                    "jsonParams": "{'x': -114, 'y': -114,  'width': 740, 'height': 740}"
                   },
                   {
                     "name": "level_cell_0",
@@ -2247,7 +2247,7 @@
                   {
                     "name": "gameplay_size",
                     "componentType": "Empty",
-                    "jsonParams": "{'x': -114, 'y': -114, 'width': 480, 'height': 480}"
+                    "jsonParams": "{'x': -114, 'y': -114, 'width': 1000, 'height': 1000}"
                   },
                   {
                     "name": "level_cell_0",
