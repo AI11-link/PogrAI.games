@@ -13,7 +13,8 @@ var aud = getResAudioManager();
 class TicTacToe {
   int _level = 1;
   int _fieldIndex = 0;
-  int _N = 3;
+  int _fieldSize = 3;
+  int _winLength = 3;
   List<String> _board = <String>[];
   String _humanSymbol = 'O';
   String _computerSymbol = 'X';
@@ -30,7 +31,8 @@ class TicTacToe {
   void startGame(int level) {
     _level = level;
     _fieldIndex = level - 1;
-    _N = 3 + 2 * (level - 1);
+    _fieldSize = 3 + 2 * (level - 1);
+    _winLength = level + 2;
     com.setFieldIndex(_fieldIndex);
     scr.setText("world_main", _fieldIndex, "frame_1.text_level_value",
         level.toString());
@@ -41,33 +43,45 @@ class TicTacToe {
   void _generateWinningCombos() {
     _winningCombos.clear();
     // Rows
-    for (int i = 0; i < _N; i++) {
-      List<int> row = [];
-      for (int j = 0; j < _N; j++) {
-        row.add(i * _N + j);
+    for (int i = 0; i < _fieldSize; i++) {
+      for (int j = 0; j <= _fieldSize - _winLength; j++) {
+        List<int> combo = [];
+        for (int k = 0; k < _winLength; k++) {
+          combo.add(i * _fieldSize + j + k);
+        }
+        _winningCombos.add(combo);
       }
-      _winningCombos.add(row);
     }
     // Columns
-    for (int j = 0; j < _N; j++) {
-      List<int> col = [];
-      for (int i = 0; i < _N; i++) {
-        col.add(i * _N + j);
+    for (int j = 0; j < _fieldSize; j++) {
+      for (int i = 0; i <= _fieldSize - _winLength; i++) {
+        List<int> combo = [];
+        for (int k = 0; k < _winLength; k++) {
+          combo.add((i + k) * _fieldSize + j);
+        }
+        _winningCombos.add(combo);
       }
-      _winningCombos.add(col);
     }
     // Main diagonal
-    List<int> mainDiag = [];
-    for (int i = 0; i < _N; i++) {
-      mainDiag.add(i * _N + i);
+    for (int i = 0; i <= _fieldSize - _winLength; i++) {
+      for (int j = 0; j <= _fieldSize - _winLength; j++) {
+        List<int> combo = [];
+        for (int k = 0; k < _winLength; k++) {
+          combo.add((i + k) * _fieldSize + (j + k));
+        }
+        _winningCombos.add(combo);
+      }
     }
-    _winningCombos.add(mainDiag);
-    // Secondary diagonal
-    List<int> antiDiag = [];
-    for (int i = 0; i < _N; i++) {
-      antiDiag.add(i * _N + (_N - 1 - i));
+    // Secondary diagonals
+    for (int i = 0; i <= _fieldSize - _winLength; i++) {
+      for (int j = _winLength - 1; j < _fieldSize; j++) {
+        List<int> combo = [];
+        for (int k = 0; k < _winLength; k++) {
+          combo.add((i + k) * _fieldSize + (j - k));
+        }
+        _winningCombos.add(combo);
+      }
     }
-    _winningCombos.add(antiDiag);
   }
 
   int getLevel() {
@@ -76,7 +90,7 @@ class TicTacToe {
 
   void resetLevel() {
     _board = <String>[];
-    for (var i = 0; i < _N * _N; i++) {
+    for (var i = 0; i < _fieldSize * _fieldSize; i++) {
       _board.add(" ");
     }
     _gameOver = false;
@@ -105,7 +119,7 @@ class TicTacToe {
           "world_main", _fieldIndex, "frame_4.text_turn_value", "computer");
       _computerMove(false);
     }
-    for (var i = 0; i < _N * _N; i++) {
+    for (var i = 0; i < _fieldSize * _fieldSize; i++) {
       scr.setAnimation(
           "world_main", _fieldIndex, "level_cell_$i.cell_anim_$i", "");
     }
@@ -163,15 +177,20 @@ class TicTacToe {
     }
 
     // Take the center if available
-    int center = (_N ~/ 2) * _N + (_N ~/ 2);
+    int center = (_fieldSize ~/ 2) * _fieldSize + (_fieldSize ~/ 2);
     if (_board[center] == ' ') {
       _makeMove(center);
       _unlockCells();
       return;
     }
 
-    // Take a random angle
-    List<int> corners = [0, _N - 1, (_N - 1) * _N, _N * _N - 1];
+    // Take a random corner
+    List<int> corners = [
+      0,
+      _fieldSize - 1,
+      (_fieldSize - 1) * _fieldSize,
+      _fieldSize * _fieldSize - 1
+    ];
     corners.shuffle();
     for (var corner in corners) {
       if (_board[corner] == ' ') {
@@ -183,7 +202,7 @@ class TicTacToe {
 
     // Take a random available cell
     List<int> available = [];
-    for (int i = 0; i < _N * _N; i++) {
+    for (int i = 0; i < _fieldSize * _fieldSize; i++) {
       if (_board[i] == ' ') {
         available.add(i);
       }
@@ -200,7 +219,7 @@ class TicTacToe {
 
   bool _makeMove(int cell) {
     // print("Move $_currentPlayer: $cell");
-    if (cell < 0 || cell >= _N * _N || _board[cell] != ' ') {
+    if (cell < 0 || cell >= _fieldSize * _fieldSize || _board[cell] != ' ') {
       return false;
     }
     String symbol = _currentPlayer == 'human' ? _humanSymbol : _computerSymbol;
@@ -245,7 +264,7 @@ class TicTacToe {
           emptyIndex = i;
         }
       }
-      if (count == _N - 1 && emptyIndex != -1) {
+      if (count == _winLength - 1 && emptyIndex != -1) {
         return emptyIndex;
       }
     }
