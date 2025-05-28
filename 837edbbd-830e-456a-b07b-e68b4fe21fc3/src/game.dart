@@ -176,11 +176,11 @@ class TicTacToe {
       return;
     }
 
-    // 3. For levels 2 and above: block potential threats.
+    // 3. For levels 2 and above: block potential threats with the best move
     if (_level >= 2) {
-      int threatMove = _getThreatBlockingMove();
-      if (threatMove != -1) {
-        _makeMove(threatMove);
+      int bestBlockMove = _getBestBlockingMove();
+      if (bestBlockMove != -1) {
+        _makeMove(bestBlockMove);
         _unlockCells();
         return;
       }
@@ -263,22 +263,69 @@ class TicTacToe {
     }
   }
 
-  int _getThreatBlockingMove() {
-    for (var combo in _winningCombos) {
+  int _getBestBlockingMove() {
+    // Dictionary for counting threats by cells
+    Map<int, int> blockCounts = {};
+
+    // We go through all the winning combinations
+    int comboIndex = 0;
+    while (comboIndex < _winningCombos.length) {
+      List<int> combo = _winningCombos[comboIndex];
       int humanCount = 0;
       List<int> emptySpots = [];
-      for (int i in combo) {
-        if (_board[i] == _humanSymbol) {
-          humanCount++;
-        } else if (_board[i] == ' ') {
-          emptySpots.add(i);
+
+      // We count the opponent's symbols and empty cells in the combination
+      int spotIndex = 0;
+      while (spotIndex < combo.length) {
+        int spot = combo[spotIndex];
+        if (_board[spot] == _humanSymbol) {
+          humanCount = humanCount + 1;
+        } else if (_board[spot] == ' ') {
+          emptySpots.add(spot);
+        }
+        spotIndex = spotIndex + 1;
+      }
+
+      // If the opponent almost won (2 out of 3), update the threat counter
+      if (humanCount == _winLength - 2 && emptySpots.length == 2) {
+        int emptyIndex = 0;
+        while (emptyIndex < emptySpots.length) {
+          int spot = emptySpots[emptyIndex];
+          if (blockCounts.containsKey(spot)) {
+            blockCounts[spot] = blockCounts[spot]! + 1;
+          } else {
+            blockCounts[spot] = 1;
+          }
+          emptyIndex = emptyIndex + 1;
         }
       }
-      if (humanCount == _winLength - 2 && emptySpots.length == 2) {
-        return emptySpots.first;
-      }
+      comboIndex = comboIndex + 1;
     }
-    return -1;
+
+    // If the dictionary is empty, return -1
+    if (blockCounts.isEmpty) {
+      return -1;
+    }
+
+    // Find the cell with the maximum number of threats
+    int maxCount = -1;
+    int bestSpot = -1;
+    int keyIndex = 0;
+    List<int> keys = [];
+    for (final entity in blockCounts.entries) {
+      keys.add(entity.key);
+    }
+    while (keyIndex < keys.length) {
+      int key = keys[keyIndex];
+      int value = blockCounts[key]!;
+      if (value > maxCount) {
+        maxCount = value;
+        bestSpot = key;
+      }
+      keyIndex = keyIndex + 1;
+    }
+
+    return bestSpot;
   }
 
   int _getWinningMove(String symbol) {
