@@ -16,14 +16,15 @@ class TicTacToe {
   int _fieldSize = 3;
   int _winLength = 3;
   List<String> _board = <String>[];
-  String _humanSymbol = 'O';
-  String _computerSymbol = 'X';
+  String _humanSymbol = 'o';
+  String _computerSymbol = 'x';
   String _currentPlayer = 'human';
   bool _gameOver = false;
   bool _isProcessing = false;
   int humanScore = 0;
   int computerScore = 0;
   List<List<int>> _winningCombos = [];
+  List<int>? _winningLine;
 
   List<String> get board => _board;
   bool get isGameOver => _gameOver;
@@ -107,13 +108,13 @@ class TicTacToe {
     //   print("COMPUTER FIRST");
     // }
     if (humanFirst) {
-      _humanSymbol = 'X';
-      _computerSymbol = 'O';
+      _humanSymbol = 'x';
+      _computerSymbol = 'o';
       _currentPlayer = 'human';
       scr.setText("world_main", _fieldIndex, "frame_4.text_turn_value", "your");
     } else {
-      _humanSymbol = 'O';
-      _computerSymbol = 'X';
+      _humanSymbol = 'o';
+      _computerSymbol = 'x';
       _currentPlayer = 'computer';
       scr.setText(
           "world_main", _fieldIndex, "frame_4.text_turn_value", "computer");
@@ -266,13 +267,23 @@ class TicTacToe {
     }
     String symbol = _currentPlayer == 'human' ? _humanSymbol : _computerSymbol;
     _board[cell] = symbol;
-    if (symbol == 'X') {
+    if (symbol == 'x') {
       _setX(cell);
     } else {
       _setO(cell);
     }
     if (_checkWin(symbol)) {
       _gameOver = true;
+      // Animation for winning line
+      if (_winningLine != null) {
+        for (var cell in _winningLine!) {
+          scr.setAnimation(
+              "world_main",
+              _fieldIndex,
+              "level_cell_$cell.cell_anim_$cell",
+              _currentPlayer == 'human' ? _humanSymbol : _computerSymbol);
+        }
+      }
       _handleEnd(_currentPlayer == 'human');
     } else if (_checkDraw()) {
       _gameOver = true;
@@ -402,9 +413,12 @@ class TicTacToe {
         }
       }
       if (win) {
+        _winningLine = combo;
+        // print("WIN LINE: $combo");
         return true;
       }
     }
+    _winningLine = null;
     return false;
   }
 
