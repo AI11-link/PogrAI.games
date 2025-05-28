@@ -176,7 +176,17 @@ class TicTacToe {
       return;
     }
 
-    // Take the center if available
+    // 3. For levels 2 and above: block potential threats.
+    if (_level >= 2) {
+      int threatMove = _getThreatBlockingMove();
+      if (threatMove != -1) {
+        _makeMove(threatMove);
+        _unlockCells();
+        return;
+      }
+    }
+
+    // 4. Take the center if available
     int center = (_fieldSize ~/ 2) * _fieldSize + (_fieldSize ~/ 2);
     if (_board[center] == ' ') {
       _makeMove(center);
@@ -184,7 +194,7 @@ class TicTacToe {
       return;
     }
 
-    // Take a random corner
+    // 5. Take a random corner
     List<int> corners = [
       0,
       _fieldSize - 1,
@@ -200,7 +210,7 @@ class TicTacToe {
       }
     }
 
-    // Take a random available cell
+    // 6. Take a random available cell
     List<int> available = [];
     for (int i = 0; i < _fieldSize * _fieldSize; i++) {
       if (_board[i] == ' ') {
@@ -251,6 +261,24 @@ class TicTacToe {
       _currentPlayer = 'human';
       scr.setText("world_main", _fieldIndex, "frame_4.text_turn_value", "your");
     }
+  }
+
+  int _getThreatBlockingMove() {
+    for (var combo in _winningCombos) {
+      int humanCount = 0;
+      List<int> emptySpots = [];
+      for (int i in combo) {
+        if (_board[i] == _humanSymbol) {
+          humanCount++;
+        } else if (_board[i] == ' ') {
+          emptySpots.add(i);
+        }
+      }
+      if (humanCount == _winLength - 2 && emptySpots.length == 2) {
+        return emptySpots.first;
+      }
+    }
+    return -1;
   }
 
   int _getWinningMove(String symbol) {
