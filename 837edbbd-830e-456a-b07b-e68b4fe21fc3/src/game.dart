@@ -95,7 +95,7 @@ class TicTacToe {
     }
     _gameOver = false;
     _isProcessing = false;
-    //print("START LEVEL: $_level");
+    // print("START LEVEL: $_level");
     humanScore = sv.getValue("lvl$_level.u");
     computerScore = sv.getValue("lvl$_level.c");
     _showScore();
@@ -210,7 +210,15 @@ class TicTacToe {
       }
     }
 
-    // 5. Take the center if available
+    // 5. Random move with probability
+    final rnd = Random().nextDouble();
+    if (rnd < 0.2 / _level) {
+      _makeRandomMove();
+      _unlockCells();
+      return;
+    }
+
+    // 6. Take the center if available
     int center = (_fieldSize ~/ 2) * _fieldSize + (_fieldSize ~/ 2);
     if (_board[center] == ' ') {
       _makeMove(center);
@@ -218,7 +226,7 @@ class TicTacToe {
       return;
     }
 
-    // 6. Take a random corner
+    // 7. Take a random corner
     List<int> corners = [
       0,
       _fieldSize - 1,
@@ -234,7 +242,7 @@ class TicTacToe {
       }
     }
 
-    // 7. Take a random available cell
+    // 8. Take a random available cell
     List<int> available = [];
     for (int i = 0; i < _fieldSize * _fieldSize; i++) {
       if (_board[i] == ' ') {
@@ -350,6 +358,20 @@ class TicTacToe {
     }
 
     return bestSpot;
+  }
+
+  void _makeRandomMove() {
+    List<int> available = [];
+    for (int i = 0; i < _fieldSize * _fieldSize; i++) {
+      if (_board[i] == ' ') {
+        available.add(i);
+      }
+    }
+    if (available.isNotEmpty) {
+      available.shuffle();
+      // print("Random move ${available[0]}");
+      _makeMove(available[0]);
+    }
   }
 
   int _getWinningMove(String symbol) {
