@@ -176,7 +176,31 @@ class TicTacToe {
       return;
     }
 
-    // 3. For levels 2 and above: block potential threats with the best move
+    // 3. For level 1: prevent a "fork" by playing on the side if the opponent has taken the opposite corners.
+    if (_level == 1) {
+      List<List<int>> oppositeCorners = [
+        [0, 8],
+        [2, 6]
+      ];
+      for (var pair in oppositeCorners) {
+        if (_board[pair[0]] == _humanSymbol &&
+            _board[pair[1]] == _humanSymbol) {
+          if (_board[4] == _computerSymbol) {
+            List<int> sides = [1, 3, 5, 7]; // Cells on the sides
+            sides.shuffle();
+            for (var side in sides) {
+              if (_board[side] == ' ') {
+                _makeMove(side);
+                _unlockCells();
+                return;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // 4. For levels 2 and above: block potential threats with the best move
     if (_level >= 2) {
       int bestBlockMove = _getBestBlockingMove();
       if (bestBlockMove != -1) {
@@ -186,7 +210,7 @@ class TicTacToe {
       }
     }
 
-    // 4. Take the center if available
+    // 5. Take the center if available
     int center = (_fieldSize ~/ 2) * _fieldSize + (_fieldSize ~/ 2);
     if (_board[center] == ' ') {
       _makeMove(center);
@@ -194,7 +218,7 @@ class TicTacToe {
       return;
     }
 
-    // 5. Take a random corner
+    // 6. Take a random corner
     List<int> corners = [
       0,
       _fieldSize - 1,
@@ -210,7 +234,7 @@ class TicTacToe {
       }
     }
 
-    // 6. Take a random available cell
+    // 7. Take a random available cell
     List<int> available = [];
     for (int i = 0; i < _fieldSize * _fieldSize; i++) {
       if (_board[i] == ' ') {
