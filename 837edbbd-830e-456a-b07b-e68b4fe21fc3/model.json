@@ -3,6 +3,7 @@
   "universe": {
     "uuid": "837edbbd-830e-456a-b07b-e68b4fe21fc3",
     "name": "tic_tac_toe",
+    "minAppVersion": "1.0.0.160",
     "meta": {
       "authorUuid": "dbdafc35-10e1-4e1f-a1a4-236d108ec8cb",
       "authorName": "AI11",
