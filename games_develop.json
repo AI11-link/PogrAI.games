@@ -1,0 +1,25 @@
+{
+  "games": [
+    {
+      "uid": "837edbbd-830e-456a-b07b-e68b4fe21fc3",
+      "name": "tic_tac_toe",
+      "nameLocalized": [                   
+        {
+          "lang": "en",
+          "text": "Tic-Tac-Toe"
+        },
+        {
+          "lang": "ru",
+          "text": "Крестики-нолики"
+        },
+        {
+          "lang": "uk",
+          "text": "Хрестики-нулики"
+        }
+      ],
+      "version": "1.0.7",
+      "minAppVersion": "1.0.0.160",
+      "pathToIcon": "assets/images/icons/icon.svg"
+    }
+  ]
+}
