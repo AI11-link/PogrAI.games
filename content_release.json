@@ -17,7 +17,7 @@
           "text": "Хрестики-нулики"
         }
       ],
-      "version": "1.0.8",
+      "version": "1.0.9",
       "minAppVersion": "1.0.0.160",
       "pathToIcon": "assets/images/icons/icon.svg"
     }
