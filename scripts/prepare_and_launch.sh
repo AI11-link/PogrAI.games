@@ -37,5 +37,5 @@ cp -R "$WS_ROOT/$UUID/." "$DEST/"
 echo "→ Launch: cmd-like behavior in Bash"
 printf "\033]0;PogrAI output\007"
 cd "$APP_FOLDER"
-./"$APP_FILE" -uuid "$UUID" | more
+./"$APP_FILE" -launch "$UUID" | more
 exit 0
