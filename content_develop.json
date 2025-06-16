@@ -20,6 +20,19 @@
       "version": "1.0.9",
       "minAppVersion": "1.0.0.160",
       "pathToIcon": "assets/images/icons/icon.svg"
+    },
+    {
+      "uid": "4bd35cc4-10c0-48e3-a052-94a481c00883",
+      "name": "2048",
+      "nameLocalized": [                   
+        {
+          "lang": "en",
+          "text": "2048"
+        }
+      ],
+      "version": "1.0.0",
+      "minAppVersion": "1.0.0.167",
+      "pathToIcon": "assets/images/icons/logo.svg"
     }
   ]
 }
