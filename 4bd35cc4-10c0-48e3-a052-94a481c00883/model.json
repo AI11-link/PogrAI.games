@@ -1,0 +1,337 @@
+{
+  "schemaVersion": 1,
+  "universe": {
+    "uuid": "4bd35cc4-10c0-48e3-a052-94a481c00883",
+    "name": "2048",
+    "minAppVersion": "1.0.0.167",
+    "meta": {
+      "authorUuid": "dbdafc35-10e1-4e1f-a1a4-236d108ec8cb",
+      "authorName": "AI11",
+      "website": "https://www.ai11.link",
+      "license": "MIT",
+      "dateCreated": "2025-06-16",
+      "dateModified": "2025-06-16",
+      "version": {
+        "major": 1,
+        "minor": 0,
+        "patch": 0
+      },
+      "isInDevelopment": true,
+      "icon": "game_icon",
+      "description": "description",
+      "preview": "preview.webp",
+      "minPlayers": 1,
+      "maxPlayers": 1,
+      "tags": [
+        "puzzle",
+        "strategy",
+        "singleplayer"
+      ],
+      "additionalInfo": {
+        "changelog": "1.0.0 - Initial version",
+        "licenseText": "Copyright <YEAR> <COPYRIGHT HOLDER>\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.",
+        "attribution": "To be filled"
+      }
+    },
+    "resources": {
+      "images": [
+        {
+          "name": "game_icon",
+          "type": "image",
+          "path": "assets/images/icons/logo.svg",
+          "content": "",
+          "jsonParams": ""
+        }
+      ],
+      "audio": [],
+      "videos": [],
+      "animations": [],
+      "particleSystems": [],
+      "themes": [],
+      "styles": [
+        {
+          "name": "big_title_text_style",
+          "type": "textStyle",
+          "jsonParams": "{'fontFamily': 'Roboto', 'color': '0xFFF5F0CD', 'backgroundColor':'0x00000000', 'fontSize': 50, 'heightStyle': 2}"
+        },
+        {
+          "name": "button_text_style",
+          "type": "textStyle",
+          "jsonParams": "{'fontFamily': 'Roboto', 'color': '0xFFF5F0CD', 'backgroundColor':'0x00000000', 'fontSize': 30, 'heightStyle': 2}"
+        },
+        {
+          "name": "big_rect_button",
+          "type": "buttonStyle",
+          "jsonParams": "{'defaultSkin': {'componentType': 'Rect', 'jsonParams': {'borderColor': '0xFF03A6A1', 'innerColor': '0xFF00809D', 'start':[80, 40], 'size': [160, 80], 'outerRadius': 10, 'innerRadius': 8, 'thickness': 5, 'anchor': 'center'}}, 'hoverSkin': {'componentType': 'Rect', 'jsonParams': {'borderColor': '0xFF831B10', 'innerColor': '0xFFDDA309', 'start':[79, 39], 'size': [162, 82], 'outerRadius': 11, 'innerRadius': 9, 'thickness': 6, 'anchor': 'center'}}, 'downSkin': {'componentType': 'Rect', 'jsonParams': {'borderColor': '0xFFBB0000', 'innerColor': '0xFFFF6429', 'start':[79, 39], 'size': [162, 82], 'outerRadius': 11, 'innerRadius': 9, 'thickness': 6, 'anchor': 'center'}}, 'disabledSkin': {'componentType': 'Rect', 'jsonParams': {'borderColor': '0xFF696969', 'innerColor': '0xFFAEAEAE', 'start':[80, 40], 'size': [160, 80], 'outerRadius': 10, 'innerRadius': 8, 'thickness': 5, 'anchor': 'center'}}}"
+        }
+      ],
+      "localizations": {
+        "languages": [
+          {
+            "code": "en",
+            "name": "English"
+          },
+          {
+            "code": "ru",
+            "name": "Русский"
+          },
+          {
+            "code": "uk",
+            "name": "Українська"
+          }
+        ],
+        "defaultLanguage": "en",
+        "autotranslations": true,
+        "translationStrings": [
+          {
+            "name": "2048",
+            "translations": [
+              {
+                "lang": "en",
+                "text": "2048"
+              },
+              {
+                "lang": "ru",
+                "text": "2048"
+              },
+              {
+                "lang": "uk",
+                "text": "2048"
+              }
+            ]
+          },
+          {
+            "name": "description",
+            "translations": [
+              {
+                "lang": "en",
+                "text": "Test"
+              },
+              {
+                "lang": "ru",
+                "text": "Test"
+              },
+              {
+                "lang": "uk",
+                "text": "Test"
+              }
+            ]
+          },
+          {
+            "name": "back_label",
+            "translations": [
+              {
+                "lang": "en",
+                "text": "Back"
+              },
+              {
+                "lang": "ru",
+                "text": "Назад"
+              },
+              {
+                "lang": "uk",
+                "text": "Назад"
+              }
+            ]
+          },
+          {
+            "name": "exit_label",
+            "translations": [
+              {
+                "lang": "en",
+                "text": "Exit"
+              },
+              {
+                "lang": "ru",
+                "text": "Выход"
+              },
+              {
+                "lang": "uk",
+                "text": "Вихід"
+              }
+            ]
+          },
+          {
+            "name": "thanks_label",
+            "translations": [
+              {
+                "lang": "en",
+                "text": "Thank you for playing!\nSee you again soon!"
+              },
+              {
+                "lang": "ru",
+                "text": "Спасибо за игру!\nДо новых встреч!"
+              },
+              {
+                "lang": "uk",
+                "text": "Дякуємо за гру!\nДо нових зустрічей!"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "gameManager": {
+      "debugMode": false,
+      "jsonParams": ""
+    },
+    "saveManager": {
+      "saveSchemaVersion": 1,
+      "gameJsonUserData": "{}",
+      "settingsJsonUserData": "{'currentTheme': 'default'}",
+      "jsonParams": ""
+    },
+    "networkManager": {
+      "jsonParams": ""
+    },
+    "scriptManager": {
+      "scripts": [],
+      "jsonParams": ""
+    },
+    "eventManager": {
+      "events": [],
+      "jsonParams": ""
+    },
+    "cameraManager": {
+      "cameraType": "max",
+      "jsonParams": ""
+    },
+    "routerManager": {
+      "routes": [
+        {
+          "name": "main_menu",
+          "windowType": "simple",
+          "transparent": false,
+          "isActive": true,
+          "jsonParams": "",
+          "content": "",
+          "components": [
+            {
+              "name": "menu_layout",
+              "componentType": "AdaptiveLayout",
+              "jsonParams": "{'leftSideSize': 0, 'rightSideSize': 0, 'minCentralSize': 100, 'background': ['menu_background']}",
+              "components": [
+                {
+                  "name": "menu_background",
+                  "componentType": "Rect",
+                  "jsonParams": "{'borderColor': '0xFF578FCA', 'innerColor': '0xFF578FCA', 'start': [0, 0], 'size': [1920, 1080], 'anchor': 'topLeft'}"
+                },
+                {
+                  "name": "title",
+                  "componentType": "Text",
+                  "jsonParams": "{'text': '2048', 'width': 200, 'height': 50, 'textStyle': 'big_title_text_style', 'anchor': 'topCenter'}"
+                },
+                {
+                  "name": "button_exit",
+                  "componentType": "Button",
+                  "jsonParams": "{'x': -80, 'y': 300, 'width': 80, 'height': 80, 'buttonStyle': 'big_rect_button', 'gestures': [{'type': 'click', 'actions': [{'type':'navigation', 'func': 'show', 'content': 'exit_dialog'}]}]}",
+                  "components": [
+                    {
+                      "name": "main_menu_button_exit_label",
+                      "componentType": "Text",
+                      "jsonParams": "{'text': 'exit_label', 'width': 160, 'height': 80, 'textStyle': 'button_text_style', 'anchor': 'topLeft', 'priority': 1}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "scripts": []
+        },
+        {
+          "name": "exit_dialog",
+          "windowType": "simple",
+          "transparent": true,
+          "jsonParams": "",
+          "content": "",
+          "components": [
+            {
+              "name": "exit_layout",
+              "componentType": "AdaptiveLayout",
+              "jsonParams": "{'leftSideSize': 0, 'rightSideSize': 0, 'minCentralSize': 100, 'background': []}",
+              "components": [
+                {
+                  "name": "exit_frame",
+                  "componentType": "Rect",
+                  "jsonParams": "{'borderColor': '0xFF3674B5', 'innerColor': '0xFF4DA8DA', 'start': [0, 0], 'size': [600, 350], 'anchor': 'topLeft', 'outerRadius': 15, 'innerRadius': 11, 'thickness': 8}"
+                },
+                {
+                  "name": "thanks_label",
+                  "componentType": "Text",
+                  "jsonParams": "{'text': 'thanks_label', 'y': 10, 'width': 600, 'height': 200, 'textStyle': 'big_title_text_style', 'anchor': 'topLeft', 'priority': 1}"
+                },
+                {
+                  "name": "button_game_exit",
+                  "componentType": "Button",
+                  "jsonParams": "{'x': 110, 'y': 230, 'width': 160, 'height': 80, 'buttonStyle': 'big_rect_button', 'anchor': 'topLeft', 'gestures': [{'type': 'click', 'actions': [{'type':'navigation', 'func': 'nav', 'content': 'exit'}]}]}",
+                  "components": [
+                    {
+                      "name": "button_exit_label",
+                      "componentType": "Text",
+                      "jsonParams": "{'text': 'exit_label', 'width': 160, 'height': 80, 'textStyle': 'button_text_style', 'anchor': 'topLeft', 'priority': 1}"
+                    }
+                  ]
+                },
+                {
+                  "name": "button_back",
+                  "componentType": "Button",
+                  "jsonParams": "{'x': 330, 'y': 230, 'width': 160, 'height': 80, 'buttonStyle': 'big_rect_button', 'anchor': 'topLeft', 'gestures': [{'type': 'click', 'actions': [{'type':'navigation', 'func': 'nav', 'content': 'back'}]}]}",
+                  "components": [
+                    {
+                      "name": "button_back_label",
+                      "componentType": "Text",
+                      "jsonParams": "{'text': 'back_label', 'width': 160, 'height': 80, 'textStyle': 'button_text_style', 'anchor': 'topLeft', 'priority': 1}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "scripts": []
+        }
+      ],
+      "jsonParams": "{'initialRoute': 'main_menu', 'exitDialog': 'exit_dialog'}"
+    },
+    "worlds": [
+      {
+        "name": "world_main",
+        "type": "turnBased",
+        "active": true,
+        "rules": {
+          "maxPlayers": 1,
+          "goalType": "captureField"
+        },
+        "physics": {
+          "gravity": false,
+          "collisionDetection": false
+        },
+        "focusField": 0,
+        "jsonParams": "",
+        "fields": [
+          {
+            "name": "game_level",
+            "fieldType": "staticField",
+            "addresses": {
+              "addressType": "cells",
+              "gridCellType": "square",
+              "focusAddress": "",
+              "grid": []
+            },
+            "jsonParams": "",
+            "components": [
+              {
+                "name": "level_layout",
+                "componentType": "AdaptiveLayout",
+                "jsonParams": "{'leftSideSize': 80, 'rightSideSize': 100, 'minCentralSize': 100, 'leftAlign': 0.2, 'rightAlign': 0.2, 'allowIncrease': false, 'leftComponents': ['button_level_back', 'button_level_pause', 'button_level_music'], 'rightComponents': ['frame_1', 'frame_2', 'frame_3', 'frame_4', 'empty_lebel'], 'background': ['game_background_back', 'game_background_front', 'game_back_animation_1', 'game_back_animation_2', 'game_back_animation_3', 'game_back_animation_4', 'game_back_animation_5']}",
+                "components": [],
+                "scripts": []
+              }
+            ],
+            "scripts": []
+          }
+        ],
+        "scripts": []
+      }
+    ]
+  }
+}
