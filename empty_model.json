@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "universe": {
-    "uuid": "4bd35cc4-10c0-48e3-a052-94a481c00883",
-    "name": "2048",
+    "uuid": "dc62290b-c828-4d9e-a9c5-30a0511bafd9",
+    "name": "test_game",
     "minAppVersion": "1.0.0.167",
     "meta": {
       "authorUuid": "dbdafc35-10e1-4e1f-a1a4-236d108ec8cb",
@@ -84,19 +84,19 @@
         "autotranslations": true,
         "translationStrings": [
           {
-            "name": "2048",
+            "name": "test_game",
             "translations": [
               {
                 "lang": "en",
-                "text": "2048"
+                "text": "Test game"
               },
               {
                 "lang": "ru",
-                "text": "2048"
+                "text": "Тестовая игра"
               },
               {
                 "lang": "uk",
-                "text": "2048"
+                "text": "Тестова гра"
               }
             ]
           },
@@ -105,15 +105,15 @@
             "translations": [
               {
                 "lang": "en",
-                "text": "A single-player sliding block puzzle game where the aim is to slide numbered tiles on a grid to combine them and create a tile with the number 2048."
+                "text": "Add a description about this game"
               },
               {
                 "lang": "ru",
-                "text": "Однопользовательская игра-головоломка со скользящими блоками, цель которой — передвигать пронумерованные плитки по сетке, чтобы объединить их и создать плитку с числом 2048."
+                "text": "Добавьте описание про эту игру"
               },
               {
                 "lang": "uk",
-                "text": "Однокористувацька гра-головоломка з ковзаючими блоками, метою якої є переміщення пронумерованих плиток по сітці, щоб об'єднати їх та створити плитку з числом 2048."
+                "text": "Додайте опис про цю гру"
               }
             ]
           },
