@@ -33,6 +33,27 @@
       "version": "1.0.0",
       "minAppVersion": "1.0.0.167",
       "pathToIcon": "assets/images/icons/logo.svg"
+    },
+    {
+      "uid": "fc8a3892-7c85-40d6-b652-818fce678dbd",
+      "name": "fruit-tile-matching",
+      "nameLocalized": [                   
+        {
+          "lang": "en",
+          "text": "Fruit Tile Matching"
+        },
+        {
+          "lang": "ru",
+          "text": "Три в ряд: Фрукты"
+        },
+        {
+          "lang": "uk",
+          "text": "Три в ряд: Фрукти"
+        }
+      ],
+      "version": "1.0.0",
+      "minAppVersion": "1.0.0.167",
+      "pathToIcon": "assets/images/icons/logo.svg"
     }
   ]
 }
