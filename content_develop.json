@@ -36,7 +36,7 @@
     },
     {
       "uid": "fc8a3892-7c85-40d6-b652-818fce678dbd",
-      "name": "fruit-tile-matching",
+      "name": "fruit_tile_matching",
       "nameLocalized": [                   
         {
           "lang": "en",
